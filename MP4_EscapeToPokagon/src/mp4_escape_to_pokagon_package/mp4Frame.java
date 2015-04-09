@@ -6,6 +6,7 @@
 
 package mp4_escape_to_pokagon_package;
 
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 
 /**
@@ -30,31 +31,35 @@ public class mp4Frame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        mp4Panel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         ioTextField = new javax.swing.JTextArea();
+        compassPanel = new javax.swing.JPanel();
+        titleLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(124, 48, 241));
+        setForeground(java.awt.Color.blue);
+        setMaximumSize(new java.awt.Dimension(900, 600));
+        setMinimumSize(new java.awt.Dimension(900, 600));
+        setPreferredSize(new java.awt.Dimension(900, 600));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        mp4Panel.setBackground(new java.awt.Color(11, 252, 62));
+        mp4Panel.setForeground(new java.awt.Color(0, 0, 255));
+        mp4Panel.setName("Escape To Pokagon"); // NOI18N
+        mp4Panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 221, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 224, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 76, -1, -1));
-
+        ioTextField.setBackground(new java.awt.Color(0, 0, 0));
         ioTextField.setColumns(20);
+        ioTextField.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        ioTextField.setForeground(new java.awt.Color(0, 200, 0));
         ioTextField.setRows(5);
+        ioTextField.setToolTipText("");
+        ioTextField.setCaretColor(new java.awt.Color(0, 200, 0));
+        ioTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        ioTextField.setDoubleBuffered(true);
         ioTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 ioTextFieldKeyReleased(evt);
@@ -62,7 +67,30 @@ public class mp4Frame extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(ioTextField);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, 563, 520));
+        mp4Panel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 563, 500));
+
+        compassPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout compassPanelLayout = new javax.swing.GroupLayout(compassPanel);
+        compassPanel.setLayout(compassPanelLayout);
+        compassPanelLayout.setHorizontalGroup(
+            compassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 262, Short.MAX_VALUE)
+        );
+        compassPanelLayout.setVerticalGroup(
+            compassPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 277, Short.MAX_VALUE)
+        );
+
+        mp4Panel.add(compassPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+
+        titleLabel.setFont(new java.awt.Font("Stencil", 0, 36)); // NOI18N
+        titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titleLabel.setText("Escape To Pokagon!");
+        titleLabel.setBorder(new javax.swing.border.MatteBorder(null));
+        mp4Panel.add(titleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 370, 40));
+
+        getContentPane().add(mp4Panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -110,8 +138,10 @@ public class mp4Frame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel compassPanel;
     private javax.swing.JTextArea ioTextField;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel mp4Panel;
+    private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
 }
