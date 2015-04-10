@@ -10,6 +10,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  *
@@ -118,4 +119,14 @@ public class Room {
         return inventory.contains(itemName);
     }
     
+    public String roomContents() {
+        if(inventory.numInInventory() > 0){
+            String str = "This room contains:\n";
+            ArrayList<Item> currentInventory = inventory.itemsInInventory();
+            for(Item item : currentInventory)
+                str += ("\t" + item.getName() + "\n");
+            return str + "\n";
+        }
+        return "There are no items in this room\n";
+    }
 }

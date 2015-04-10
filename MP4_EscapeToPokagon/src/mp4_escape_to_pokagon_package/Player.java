@@ -1,5 +1,7 @@
 package mp4_escape_to_pokagon_package;
 
+import java.util.ArrayList;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -45,4 +47,15 @@ public class Player {
         return inventory.contains(itemName);
     }
     
+    public String checkInventory() {
+        if(inventory.numInInventory() > 0){
+            String str = "You check your inventory:\n";
+            ArrayList<Item> currentInventory = inventory.itemsInInventory();
+            for(Item item : currentInventory) {
+                str += ("\t" + item.getName() + "\n");
+            }
+            return str + "\n";
+        }
+        return "Your inventory is currently empty.\n";
+    }
 }

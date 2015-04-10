@@ -44,13 +44,21 @@ public class Inventory {
     }
     
     public Item removeItem(String itemName) {
-        for(Item item : inventory){
+        for(Item item : inventory) {
             if(item.getName().equalsIgnoreCase(itemName)){
                 inventory.remove(item);
                 return item;
             }
         }
         return null;
+    }
+    
+    public ArrayList<Item> itemsInInventory() {
+        return inventory;
+    }
+    
+    public int numInInventory() {
+        return numItems;
     }
     
 }
