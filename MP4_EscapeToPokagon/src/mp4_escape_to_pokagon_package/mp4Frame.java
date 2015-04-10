@@ -194,30 +194,43 @@ public class mp4Frame extends javax.swing.JFrame {
     
     
     private void ioTextAreaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ioTextAreaKeyReleased
-        // TODO add your handling code here:
+        //If the enter key was released
         if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            //Boolean to check if the player transitioned to a different room
             boolean moved = false;
+            //Since the Map class reads from a file and may throw an IOException, everything
+            //interacting with it is in a try->catch
             try{
+                //Sets line number to that of the user's command
                 int lineNumber = ioTextArea.getLineCount() - 2;
+                //Gets offset + 2 for the "> " before an entry
                 int offset = ioTextArea.getLineStartOffset(lineNumber) + 2;
+                //offset of the end of the user's command
                 int endOfLine = ioTextArea.getLineEndOffset(lineNumber) -  1;
+                //No command was entered
                 if(endOfLine - offset == 0) {
+                    //Alert user, break away
                     ioTextArea.insert("Please enter a command", offset);
                     return;
                 }
+                
+                //User's command
                 String command = ioTextArea.getText(offset, endOfLine - offset);
                 
+                //If the command was too short
                 if(endOfLine - offset <= 3) {
                     ioTextArea.append("\"" + command + "\" is not a recognized command\n\n> ");
                     return;
                 }
                 
+                //Booleans that denotes if a given direction is valid in the given context (room)
                 boolean[] moveableDirections = map.getMoveableDirections();
                 boolean north = moveableDirections[0];
                 boolean east = moveableDirections[1];
                 boolean south = moveableDirections[2];
                 boolean west = moveableDirections[3];
-
+                
+                
                 if(command.equalsIgnoreCase("go north") || command.equalsIgnoreCase("move north") || command.equalsIgnoreCase("north")){ 
                     //Move north function + error check
                     if(north) {
@@ -272,12 +285,17 @@ public class mp4Frame extends javax.swing.JFrame {
                 else if(command.substring(0, 4).equalsIgnoreCase("drop")) {
                     //Check for items etc
                     String item = command.substring(5, command.length());
+                    //If player has said item
                     if(player.playerHas(item)){
                         Item droppeditem = player.dropItem(item);
+                        //If item can be added to the current rooom's inventory
                         if(map.addItemToCurrentRoom(droppeditem)) {
+                            //Alert user
                             ioTextArea.append("You dropped " + item + '\n');
+                            //If there was a reward for dropping said item in this room
                             if(droppeditem.scoreRoom() == map.getRoomNumber()){
                                 int reward = droppeditem.returnReward();
+                                //If there is still a reward for dropping this item
                                 if(reward > 0) {
                                     player.addToScore(reward);
                                     ioTextArea.append("You got " + reward + " points for " + item + "\n");
@@ -290,10 +308,10 @@ public class mp4Frame extends javax.swing.JFrame {
                 } else {
                     ioTextArea.append("\"" + command + "\" is not a recognized command\n");
                 }
-            } catch (BadLocationException ex) {
+            } catch (BadLocationException ex) { //Try failed
                 Logger.getLogger(mp4Frame.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+            //If the command resulted in a move, update the compass label for the new room
             if(moved){
                 boolean[] moveableDirections = map.getMoveableDirections();
                 boolean north = moveableDirections[0];
@@ -303,12 +321,13 @@ public class mp4Frame extends javax.swing.JFrame {
                 compassLabel.showDirections(north, east, south, west);
                 roomNumLabel.setText("Room Number: " + map.getRoomNumber());
                 ioTextArea.setText(map.roomVisit() + '\n');
-                
+                //If points are awarded for visiting this room, do so, but only the first time
                 int visitPoints = map.addPoints();
                 if(visitPoints != 0){
                     player.addToScore(visitPoints);
                 }
             }
+            //Update player's score
             scoreLabel.setText("Total Score: " + player.getScore());
             ioTextArea.append("\n> ");
         }
