@@ -103,4 +103,11 @@ public class Map {
     public Item removeItemFromCurrentRoom(String itemName) {
         return currentRoom.removeItem(itemName);
     }
+    
+    public String roomVisit() {
+        if(currentRoom.isFirstVisit()){
+            return (currentRoom.getLongDescription());
+        }
+        return currentRoom.getShortDescription();
+    }
 }

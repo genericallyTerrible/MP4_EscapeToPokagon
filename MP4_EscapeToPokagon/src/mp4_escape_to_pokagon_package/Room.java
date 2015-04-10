@@ -25,6 +25,7 @@ public class Room {
     private String shortDescription;
     private String longDescription;
     private Inventory inventory;
+    private boolean isFirstVisit = true;
     
     Room(String fileName) throws FileNotFoundException, IOException
     {
@@ -128,5 +129,13 @@ public class Room {
             return str + "\n";
         }
         return "There are no items in this room\n";
+    }
+    
+    public boolean isFirstVisit() {
+        if(isFirstVisit){
+            isFirstVisit = !isFirstVisit;
+            return true;
+        }
+        return false;
     }
 }
