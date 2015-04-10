@@ -2,7 +2,7 @@
 4
 7
 -1
-0
+10
 Cabins
 You find some cabins, which seem to be available
 for rental.  Too bad you forgot your wallet! East
