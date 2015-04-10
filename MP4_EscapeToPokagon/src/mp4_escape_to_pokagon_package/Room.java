@@ -23,7 +23,7 @@ public class Room {
     int pointValue;
     String shortDescription;
     String longDescription;
-    public Inventory inventory;
+    private Inventory inventory;
     
     Room(String fileName) throws FileNotFoundException, IOException
     {
@@ -43,4 +43,13 @@ public class Room {
         }
         longDescription = longDescription.substring(0, longDescription.length()-1);
     }    
+    
+    public boolean addItem(Item obj) {
+        return inventory.addItem(obj);
+    }
+    
+    public Item removeItem(Item obj) {
+        return inventory.removeItem(obj);
+    }
+    
 }
