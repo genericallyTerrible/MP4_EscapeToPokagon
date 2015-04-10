@@ -65,7 +65,7 @@ public class mp4Frame extends javax.swing.JFrame {
         setForeground(java.awt.Color.blue);
         setMaximumSize(new java.awt.Dimension(880, 560));
         setMinimumSize(new java.awt.Dimension(880, 560));
-        setPreferredSize(new java.awt.Dimension(885, 600));
+        setPreferredSize(new java.awt.Dimension(885, 593));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -85,7 +85,7 @@ public class mp4Frame extends javax.swing.JFrame {
         ioTextArea.setForeground(new java.awt.Color(0, 200, 0));
         ioTextArea.setRows(5);
         ioTextArea.setToolTipText("");
-        ioTextArea.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(51, 255, 51))); // NOI18N
+        ioTextArea.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Dialog", 0, 11), new java.awt.Color(51, 255, 51))); // NOI18N
         ioTextArea.setCaretColor(new java.awt.Color(0, 200, 0));
         ioTextArea.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         ioTextArea.setDoubleBuffered(true);
