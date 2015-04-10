@@ -37,7 +37,7 @@ public class Map {
         rooms.get(28).addItem(new Item("Canteen", 50, 23));
         rooms.get(36).addItem(new Item("Bluebird", 60, 20));
         rooms.get(22).addItem(new Item("Rusted key", 60, 35));
-        rooms.get(4).addItem(new Item("Map", 90, 24));
+        rooms.get(4).addItem(new Item("Pokagon Map", 90, 24));
     }
     
     public boolean[] getMoveableDirections()
