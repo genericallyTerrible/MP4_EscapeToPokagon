@@ -1,8 +1,12 @@
+30
+27
 -1
--1
--1
--1
+29
 0
-short room description
-long room description
+Start of trail 2
+Trail 2 is, as you have come to find, a horse
+trail.  But don't worry, you've only stepped in
+horse poo twice.  North continues trail 2, east
+goes back to trail 3, and west goes to the Spring
+Shelter.
 END

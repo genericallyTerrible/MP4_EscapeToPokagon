@@ -1,8 +1,11 @@
 -1
+19
 -1
--1
--1
+25
 0
-short room description
-long room description
+Somewhere on trail 9
+This part of trail 9 is pretty much just a bridge
+between the two ends of trail 3. You hear the faint
+crys of baby bluebirds high up in an oak tree. East
+and west both lead to trail 3.
 END

@@ -1,8 +1,11 @@
 3
 -1
 5
--1
+8
 0
 The Inn
-The Inn Long discription
+You walk into the Inn.  You aren't staying the night,
+but it's nice to just take a look around.  South goes
+to the boat rental area, west goes to some cabins,
+and north goes to the parking lot.
 END

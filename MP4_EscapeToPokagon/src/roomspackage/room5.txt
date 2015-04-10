@@ -1,8 +1,12 @@
 4
 -1
--1
--1
+6
+7
 0
-Boat Rental
-Boat Rental Long description
+Boat rental area
+Nobody seems to be here at the boat rental
+area, and there aren't many boats around. I
+doubt anyone would mind if I took one.  South
+is Lake James, north is the Inn, and west is
+the volleyball courts.
 END

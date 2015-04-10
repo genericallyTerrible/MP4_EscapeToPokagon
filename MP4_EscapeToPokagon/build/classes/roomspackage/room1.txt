@@ -3,6 +3,8 @@
 -1
 2
 0
-Park entrance.
-Park entrance long description
+Entrance to Pokagon
+You stand at the entrance to Pokagon State Park,
+and the only way to go is west.  That way leasds
+to the Gatehouse.
 END

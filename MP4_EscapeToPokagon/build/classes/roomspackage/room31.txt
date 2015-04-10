@@ -1,8 +1,11 @@
 -1
--1
+30
 -1
 -1
 0
-short room description
-long room description
+Camp #4
+You're visiting a small camping area occupied by
+some campers. One camper really seems to want a
+parking receipt. Strange. East leads back down
+trail 2.
 END

@@ -1,8 +1,12 @@
--1
+5
 -1
 -1
 -1
 0
-short room description
-long room description
+Lake James
+You come to the edge of Lake James and see
+some sad looking children - it looks like
+they wanted to rent a boat, but couln't find
+anybody to rent one from.  North goes back to
+the boat rental area.
 END

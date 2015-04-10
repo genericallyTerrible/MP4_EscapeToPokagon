@@ -1,10 +1,9 @@
-1
-2
-3
-4
-50
-first room
-its the first room bro.
-for sure.
-BITCH
+36
+34
+-1
+-1
+0
+Somewhere on trail 7
+Wow, this nature is great.
+Trail 7 continues north and east.
 END

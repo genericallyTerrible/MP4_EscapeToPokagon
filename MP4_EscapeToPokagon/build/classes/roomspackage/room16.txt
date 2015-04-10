@@ -1,8 +1,10 @@
 -1
+15
 -1
--1
--1
+17
 0
-short room description
-long room description
+Lake Charles West
+You're at Lake Charles west, but it's private
+property so you should probably leave. East
+and west both continue trail 6.
 END

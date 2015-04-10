@@ -4,5 +4,7 @@
 -1
 0
 Gatehouse
-Gatehouse long description
+You arrive at the Gatehouse, and since you're walking
+you don't need a parking pass.  South is the parking
+lot and east goes back to the entrance.
 END

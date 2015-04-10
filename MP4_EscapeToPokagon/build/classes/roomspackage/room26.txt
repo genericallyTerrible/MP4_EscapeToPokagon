@@ -1,8 +1,10 @@
+32
+25
 -1
--1
--1
--1
+27
 0
-short room description
-long room description
+Somewhere on trail
+You continue on trail 3, but you also discover
+another trail leading north.  Trail 7 goes north
+while trail 3 continues east and west.
 END

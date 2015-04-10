@@ -1,8 +1,10 @@
 -1
 -1
--1
--1
+34
+36
 0
-short room description
-long room description
+Somewhere on trail 7
+Whoa, this part of the trail has been painted in the shape
+of a giant key. I wonder what that means...
+Trail 7 continues west and south.
 END

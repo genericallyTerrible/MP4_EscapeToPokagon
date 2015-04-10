@@ -1,8 +1,12 @@
 -1
--1
--1
--1
+22
+23
+19
 0
-short room description
-long room description
+Begining of trail 9
+This is pretty much the begining of trail 9, which
+leads you in a big circle. It can get confusing
+though, and you've heard that there can be some
+crazies in there. East and south continue trail 9,
+while west leads back to trail 3.
 END

@@ -1,8 +1,9 @@
 -1
--1
+28
 -1
 -1
 0
-short room description
-long room description
+Spring Shelter
+Hmmm, spring shelter seems to be going through
+maintenence. Too bad! East leads back to trail 2.
 END

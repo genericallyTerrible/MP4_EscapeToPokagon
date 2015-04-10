@@ -1,8 +1,11 @@
 2
--1
+9
 4
 -1
 0
 Parking lot
-Parking lot long description
+In front of you is a parking lot.  There aren't many
+cars, so you should have the park pretty much to
+yourself.  East leads to trail 3, south goes to the
+Inn, and north goes back to the gatehouse.
 END
