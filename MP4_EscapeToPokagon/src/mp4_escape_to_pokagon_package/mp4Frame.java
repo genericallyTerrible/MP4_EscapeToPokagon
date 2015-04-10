@@ -64,7 +64,7 @@ public class mp4Frame extends javax.swing.JFrame {
         ioTextField.setForeground(new java.awt.Color(0, 200, 0));
         ioTextField.setRows(5);
         ioTextField.setToolTipText("");
-        ioTextField.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(51, 255, 51))); // NOI18N
+        ioTextField.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Dialog", 0, 11), new java.awt.Color(51, 255, 51))); // NOI18N
         ioTextField.setCaretColor(new java.awt.Color(0, 200, 0));
         ioTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         ioTextField.setDoubleBuffered(true);

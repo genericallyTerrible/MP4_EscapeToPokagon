@@ -46,19 +46,19 @@ public class CompassLabel extends JLabel {
                 break;
             case 6: direction = "South, West";
                 break;
-            case 7: direction = "West, North ";
+            case 7: direction = "North, West ";
                 break;
-            case 8: direction = "North, East, South";
+            case 8: direction = "East, West";
                 break;
-            case 9: direction = "East, South, West";
+            case 9: direction = "North, South";
                 break;
-            case 10: direction = "South, West, North";
+            case 10: direction = "North, East, South";
                 break;
-            case 11: direction = "West, North, East";
+            case 11: direction = "East, South, West";
                 break;
-            case 12: direction = "East, West";
+            case 12: direction = "North, South, West";
                 break;
-            case 13: direction = "North, South";
+            case 13: direction = "North, East, West";
                 break;
             case 14: direction = "North, East, South, West";
                 break;
@@ -84,17 +84,17 @@ public class CompassLabel extends JLabel {
             imgNum = 6;
          if(west && north)
             imgNum = 7;
-         if(north && east && south)
-            imgNum = 8;
-         if(east && south && west)
-            imgNum = 9;
-         if(south && west && north)
-            imgNum = 10;
-         if(west && north && east)
-            imgNum = 11;
          if(east && west)
-            imgNum = 12;
+            imgNum = 8;
          if(north && south)
+            imgNum = 9;
+         if(north && east && south)
+            imgNum = 10;
+         if(east && south && west)
+            imgNum = 11;
+         if(south && west && north)
+            imgNum = 12;
+         if(west && north && east)
             imgNum = 13;
         if(north && east && south && west)
             imgNum = 14;
