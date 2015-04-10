@@ -59,6 +59,7 @@ public class mp4Frame extends javax.swing.JFrame {
         compassBackgroundPanel = new javax.swing.JPanel();
         compassPanel = new javax.swing.JPanel();
         compassTitleLabel = new javax.swing.JLabel();
+        roomNumLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(124, 48, 241));
@@ -85,7 +86,7 @@ public class mp4Frame extends javax.swing.JFrame {
         ioTextArea.setForeground(new java.awt.Color(0, 200, 0));
         ioTextArea.setRows(5);
         ioTextArea.setToolTipText("");
-        ioTextArea.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Dialog", 0, 11), new java.awt.Color(51, 255, 51))); // NOI18N
+        ioTextArea.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(51, 255, 51))); // NOI18N
         ioTextArea.setCaretColor(new java.awt.Color(0, 200, 0));
         ioTextArea.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         ioTextArea.setDoubleBuffered(true);
@@ -110,13 +111,12 @@ public class mp4Frame extends javax.swing.JFrame {
         compassBackgroundPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         compassPanel.setBackground(new java.awt.Color(204, 255, 204));
-        compassPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         compassPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         compassPanel.setFocusCycleRoot(true);
         compassPanel.setMaximumSize(new java.awt.Dimension(260, 327));
         compassPanel.setMinimumSize(new java.awt.Dimension(260, 327));
         compassPanel.setLayout(new java.awt.GridLayout(1, 1));
-        compassBackgroundPanel.add(compassPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 260, 327));
+        compassBackgroundPanel.add(compassPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 260, 230));
 
         compassTitleLabel.setBackground(new java.awt.Color(204, 255, 204));
         compassTitleLabel.setFont(new java.awt.Font("Sitka Banner", 1, 24)); // NOI18N
@@ -127,6 +127,13 @@ public class mp4Frame extends javax.swing.JFrame {
         compassTitleLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         compassTitleLabel.setOpaque(true);
         compassBackgroundPanel.add(compassTitleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 260, -1));
+
+        roomNumLabel.setBackground(new java.awt.Color(204, 255, 204));
+        roomNumLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        roomNumLabel.setText("Room #");
+        roomNumLabel.setToolTipText("");
+        roomNumLabel.setOpaque(true);
+        compassBackgroundPanel.add(roomNumLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 260, 80));
 
         backgroundPanel.add(compassBackgroundPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 280, 410));
 
@@ -151,7 +158,7 @@ public class mp4Frame extends javax.swing.JFrame {
                 }
                 String command = ioTextArea.getText(offset, endOfLine - offset);
                 
-                if(endOfLine - offset <=3) {
+                if(endOfLine - offset <= 3) {
                     ioTextArea.append("\"" + command + "\" is not a recognized command\n");
                     return;
                 }
@@ -167,25 +174,29 @@ public class mp4Frame extends javax.swing.JFrame {
                     if(north) {
                         map.moveRooms(1);
                         moved = true;
-                    }
+                    } else 
+                        ioTextArea.append("\"" + command + "\" is not a valid direction\n");
                 } else if(command.equalsIgnoreCase("go east") || command.equalsIgnoreCase("move east") || command.equalsIgnoreCase("east")){
                     //Move east function + error check
                     if(east) {
                         map.moveRooms(2);
                         moved = true;
-                    }
+                    } else 
+                        ioTextArea.append("\"" + command + "\" is not a valid direction\n");
                 } else if(command.equalsIgnoreCase("go south") || command.equalsIgnoreCase("move south") || command.equalsIgnoreCase("south")){
                     //Move south function + error check
                     if(south) {
                         map.moveRooms(3);
                         moved = true;
-                    }
+                    } else 
+                        ioTextArea.append("\"" + command + "\" is not a valid direction\n");
                 } else if(command.equalsIgnoreCase("go west") || command.equalsIgnoreCase("move west") || command.equalsIgnoreCase("west")){
                     //Move west function + error check
                     if(west) {
                         map.moveRooms(4);
                         moved = true;
-                    }
+                    } else 
+                        ioTextArea.append("\"" + command + "\" is not a valid direction\n");
                 } 
                 
                 else if(command.substring(0, 4).equalsIgnoreCase("take")) {
@@ -204,8 +215,16 @@ public class mp4Frame extends javax.swing.JFrame {
                     //Check for items etc
                     String item = command.substring(5, command.length());
                     if(player.playerHas(item)){
-                        if(map.addItemToCurrentRoom(player.dropItem(item))) {
+                        Item droppeditem = player.dropItem(item);
+                        if(map.addItemToCurrentRoom(droppeditem)) {
                             ioTextArea.append("You dropped " + item + '\n');
+                            if(droppeditem.scoreRoom() == map.getRoomNumber()){
+                                int reward = droppeditem.returnReward();
+                                if(reward > 0) {
+                                    player.addToScore(reward);
+                                    ioTextArea.append("You got " + reward + "points for " + item);
+                                }                                                                
+                            }
                         }
                     } else {
                         ioTextArea.append("You do not have " + item + '\n');
@@ -224,8 +243,7 @@ public class mp4Frame extends javax.swing.JFrame {
                 boolean south = moveableDirections[2];
                 boolean west = moveableDirections[3];
                 compassLabel.showDirections(north, east, south, west);
-                
-                
+                roomNumLabel.setText("Room Number: " + map.getRoomNumber());
             }
         }
     }//GEN-LAST:event_ioTextAreaKeyReleased
@@ -272,6 +290,7 @@ public class mp4Frame extends javax.swing.JFrame {
     private javax.swing.JLabel compassTitleLabel;
     private javax.swing.JTextArea ioTextArea;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel roomNumLabel;
     private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
 }
