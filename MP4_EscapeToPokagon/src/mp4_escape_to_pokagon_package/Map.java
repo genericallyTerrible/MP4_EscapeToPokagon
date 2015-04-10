@@ -103,22 +103,50 @@ public class Map {
         return points;
     }
     
+    /**
+     * Returns the index value of the current room in the rooms ArrayList
+     * @return the index value of the current room in the rooms ArrayList
+     */
     public int getRoomNumber() {
         return rooms.indexOf(currentRoom);
     }
     
+    /**
+     * Checks if the current room has within its inventory
+     * an item with the name itemName
+     * @param itemName name of the item in question
+     * @return true if the current room contains the item, false otherwise
+     */
     public boolean currentRoomContains(String itemName) {
         return currentRoom.roomContains(itemName);
     }
     
+    /**
+     * Adds the Item obj to the current room's inventory and returns a boolean
+     * denoting the result of the operation. True if successful, false otherwise.
+     * @param obj The item to be added to the inventory of the current room
+     * @return a boolean denoting the state of the operation, true if successful, false otherwise
+     */
     public boolean addItemToCurrentRoom(Item obj){
         return currentRoom.addItem(obj);
     }
     
+    /**
+     * Removes an item by name from the current room's inventory and returns
+     * it as the result of the function
+     * @param itemName Name of the item to be removed
+     * @return The item removed if the operation was successful, null otherwise
+     */
     public Item removeItemFromCurrentRoom(String itemName) {
         return currentRoom.removeItem(itemName);
     }
     
+    /**
+     * Returns a string containing the description of the current room, the longer
+     * variant if this is the first visit, shorter otherwise
+     * @return a string containing the description of the current room, the longer
+     * variant if this is the first visit, shorter otherwise
+     */
     public String roomVisit() {
         if(currentRoom.isFirstVisit()){
             return (currentRoom.getLongDescription());
@@ -126,10 +154,20 @@ public class Map {
         return currentRoom.getShortDescription();
     }
     
+    /**
+     * Returns a string containing the long description of the current room and
+     * any items i currently has in its inventory.
+     * @return a string containing the long description of the current room and
+     * any items i currently has in its inventory.
+     */
     public String look(){
         return currentRoom.getLongDescription() + '\n' + currentContents();
     }
     
+    /**
+     * Returns a string containing the current inventory of the current room
+     * @return a string containing the current inventory of the current room
+     */
     public String currentContents() {
         return currentRoom.roomContents();
     }
