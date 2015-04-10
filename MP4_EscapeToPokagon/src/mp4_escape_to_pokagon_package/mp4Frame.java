@@ -117,6 +117,7 @@ public class mp4Frame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     Room currentRoom;
+    Player player;
     int lineNumber = 0;
     int offset     = 0;
     int endOfLine  = 0;
@@ -139,9 +140,14 @@ public class mp4Frame extends javax.swing.JFrame {
                     //Move west function + error check
                 } else if(command.substring(0, 4).equalsIgnoreCase("take")) {
                     //Check for items etc
-                    currentRoom.roomContains(command.substring(5, command.length()));
+                    if(currentRoom.roomContains(command.substring(5, command.length()))){
+                        player.addItem(currentRoom.removeItem(command.substring(5, command.length())));
+                    }
                 } else if(command.substring(0, 4).equalsIgnoreCase("drop")) {
                     //Check for items etc
+                    if(player.playerHas(command.substring(5, command.length()))){
+                        currentRoom.addItem(player.dropItem(command.substring(5, command.length())));
+                    }
                 }
             } catch (BadLocationException ex) {
                 Logger.getLogger(mp4Frame.class.getName()).log(Level.SEVERE, null, ex);
