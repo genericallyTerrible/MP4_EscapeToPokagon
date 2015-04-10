@@ -300,7 +300,7 @@ public class mp4Frame extends javax.swing.JFrame {
                 ioTextArea.setText(map.roomVisit() + '\n');
             }
             scoreLabel.setText("Total Score: " + player.getScore());
-            ioTextArea.append("> ");
+            ioTextArea.append("\n> ");
         }
     }//GEN-LAST:event_ioTextAreaKeyReleased
 
