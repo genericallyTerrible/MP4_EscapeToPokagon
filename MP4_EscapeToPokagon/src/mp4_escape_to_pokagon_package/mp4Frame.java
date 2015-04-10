@@ -62,7 +62,7 @@ public class mp4Frame extends javax.swing.JFrame {
         footerPanel.add(footerImageLabel);
         
         ioTextArea.setText(map.roomVisit() + '\n');
-        ioTextArea.append("> ");
+        ioTextArea.append("\n> ");
     }
 
     /**
