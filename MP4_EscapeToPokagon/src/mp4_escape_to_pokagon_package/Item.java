@@ -30,9 +30,7 @@ public class Item {
         return scoreRoom;
     }
     
-    public int returnReward() {
-        int reward = pointValue;
-        pointValue = 0;
-        return reward;
+    public int pointValue() {
+        return pointValue;
     }
 }
