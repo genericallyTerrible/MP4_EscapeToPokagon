@@ -7,6 +7,9 @@
 package mp4_escape_to_pokagon_package;
 
 import java.awt.event.KeyEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.text.BadLocationException;
 
 /**
  *
@@ -37,7 +40,7 @@ public class mp4Frame extends javax.swing.JFrame {
 
         backgroundPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        ioTextField = new javax.swing.JTextArea();
+        ioTextArea = new javax.swing.JTextArea();
         titleLabel = new javax.swing.JLabel();
         compassBackgroundPanel = new javax.swing.JPanel();
         compassPanel = new javax.swing.JPanel();
@@ -58,22 +61,22 @@ public class mp4Frame extends javax.swing.JFrame {
         backgroundPanel.setPreferredSize(new java.awt.Dimension(880, 510));
         backgroundPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        ioTextField.setBackground(new java.awt.Color(0, 0, 0));
-        ioTextField.setColumns(20);
-        ioTextField.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
-        ioTextField.setForeground(new java.awt.Color(0, 200, 0));
-        ioTextField.setRows(5);
-        ioTextField.setToolTipText("");
-        ioTextField.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Dialog", 0, 11), new java.awt.Color(51, 255, 51))); // NOI18N
-        ioTextField.setCaretColor(new java.awt.Color(0, 200, 0));
-        ioTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        ioTextField.setDoubleBuffered(true);
-        ioTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+        ioTextArea.setBackground(new java.awt.Color(0, 0, 0));
+        ioTextArea.setColumns(20);
+        ioTextArea.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        ioTextArea.setForeground(new java.awt.Color(0, 200, 0));
+        ioTextArea.setRows(5);
+        ioTextArea.setToolTipText("");
+        ioTextArea.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(51, 255, 51))); // NOI18N
+        ioTextArea.setCaretColor(new java.awt.Color(0, 200, 0));
+        ioTextArea.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        ioTextArea.setDoubleBuffered(true);
+        ioTextArea.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                ioTextFieldKeyReleased(evt);
+                ioTextAreaKeyReleased(evt);
             }
         });
-        jScrollPane1.setViewportView(ioTextField);
+        jScrollPane1.setViewportView(ioTextArea);
 
         backgroundPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 550, 410));
 
@@ -114,13 +117,34 @@ public class mp4Frame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    int lineNumber = 0;
+    int offset     = 0;
+    int endOfLine  = 0;
     
-    private void ioTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ioTextFieldKeyReleased
+    private void ioTextAreaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ioTextAreaKeyReleased
         // TODO add your handling code here:
+        lineNumber = ioTextArea.getLineCount() - 2;
         if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            compassLabel.showDirections(true, false, true, true);
+            try{
+                offset = ioTextArea.getLineStartOffset(lineNumber);
+                endOfLine = ioTextArea.getLineEndOffset(lineNumber) -  1;
+                String command = ioTextArea.getText(offset, endOfLine - offset);
+                if(command.equalsIgnoreCase("go north") || command.equalsIgnoreCase("move north") || command.equalsIgnoreCase("north")){ 
+                    //Move north function + error check
+                } else if(command.equalsIgnoreCase("go east") || command.equalsIgnoreCase("move east") || command.equalsIgnoreCase("east")){
+                    //Move east function + error check
+                } else if(command.equalsIgnoreCase("go south") || command.equalsIgnoreCase("move south") || command.equalsIgnoreCase("south")){
+                    //Move south function + error check
+                } else if(command.equalsIgnoreCase("go west") || command.equalsIgnoreCase("move west") || command.equalsIgnoreCase("west")){
+                    //Move west function + error check
+                } else if(command.substring(0, 4).equalsIgnoreCase("take")) {
+                    System.out.println("got here");
+                }
+            } catch (BadLocationException ex) {
+                Logger.getLogger(mp4Frame.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-    }//GEN-LAST:event_ioTextFieldKeyReleased
+    }//GEN-LAST:event_ioTextAreaKeyReleased
 
     /**
      * @param args the command line arguments
@@ -162,7 +186,7 @@ public class mp4Frame extends javax.swing.JFrame {
     private javax.swing.JPanel compassBackgroundPanel;
     private javax.swing.JPanel compassPanel;
     private javax.swing.JLabel compassTitleLabel;
-    private javax.swing.JTextArea ioTextField;
+    private javax.swing.JTextArea ioTextArea;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables

@@ -41,4 +41,8 @@ public class Player {
         return inventory.removeItem(obj);
     }
     
+    public boolean playerHas(String itemName){
+        return inventory.contains(itemName);
+    }
+    
 }

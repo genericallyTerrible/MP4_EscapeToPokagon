@@ -29,6 +29,10 @@ public class Inventory {
         numItems = 0;
     }
     
+    public boolean contains(String ItemName) {
+        for(Item item : inventory)
+            if(item.getName())
+    }
     
     public boolean addItem(Item obj) {
         if(maxNumItems - (numItems + 1) > 0) {
