@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class Map {
     ArrayList<Room> rooms;
     Room currentRoom;
-    private final int NUM_ROOMS = 6;
+    private final int NUM_ROOMS = 37;
     private final int NORTH = 1;
     private final int EAST = 2;
     private final int SOUTH = 3;
