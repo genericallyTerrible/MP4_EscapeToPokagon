@@ -16,13 +16,13 @@ import java.io.IOException;
  * @author mtbjj
  */
 public class Room {
-    int northRoom;
-    int eastRoom;
-    int southRoom;
-    int westRoom;
-    int pointValue;
-    String shortDescription;
-    String longDescription;
+    private int northRoom;
+    private int eastRoom;
+    private int southRoom;
+    private int westRoom;
+    private int pointValue;
+    private String shortDescription;
+    private String longDescription;
     private Inventory inventory;
     
     Room(String fileName) throws FileNotFoundException, IOException
@@ -44,11 +44,68 @@ public class Room {
         longDescription = longDescription.substring(0, longDescription.length()-1);
     }    
     
-    public boolean addItem(Item obj) {
+    public boolean isNorthRoom()
+    {
+        return northRoom != -1;
+    }
+    
+    public int getNorthRoom()
+    {
+        return northRoom;
+    }
+    
+    public boolean isEastRoom()
+    {
+        return eastRoom != -1;
+    }
+    
+    public int getEastRoom()
+    {
+        return eastRoom;
+    }
+    
+    public boolean isSouthRoom()
+    {
+        return southRoom != -1;
+    }
+    
+    public int getSouthRoom()
+    {
+        return southRoom;
+    }
+    
+    public boolean isWestRoom()
+    {
+        return westRoom != -1;
+    }
+    
+    public int getWestRoom()
+    {
+        return westRoom;
+    }
+    
+    public int getPointValue()
+    {
+        return pointValue;
+    }
+    
+    public boolean addItem(Item obj) 
+    {
         return inventory.addItem(obj);
     }
     
-    public Item removeItem(Item obj) {
+    public String getShortDescription()
+    {
+        return shortDescription;
+    }
+    
+    public String getLongDescription()
+    {
+        return longDescription;
+    }
+    
+    public Item removeItem(Item obj) 
+    {
         return inventory.removeItem(obj);
     }
     

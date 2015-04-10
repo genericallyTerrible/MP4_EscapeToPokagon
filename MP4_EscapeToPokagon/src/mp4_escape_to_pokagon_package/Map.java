@@ -15,6 +15,10 @@ public class Map {
     Room[] rooms;
     Room currentRoom;
     private final int NUM_ROOMS = 5;
+    private final int NORTH = 1;
+    private final int EAST = 2;
+    private final int SOUTH = 3;
+    private final int WEST = 4;
     
     Map() throws IOException
     {
@@ -28,6 +32,36 @@ public class Map {
     
     public boolean[] getMoveableDirections()
     {
-        
+        boolean[] directions = new boolean[4];
+        directions[0] = currentRoom.isNorthRoom();
+        directions[1] = currentRoom.isEastRoom();
+        directions[2] = currentRoom.isSouthRoom();
+        directions[3] = currentRoom.isWestRoom();
+        return directions;
+    }
+    
+    public void moveRooms(int direction)
+    {
+        switch(direction)
+        {
+            case NORTH:
+                if(currentRoom.isNorthRoom())
+                    currentRoom = rooms[currentRoom.getNorthRoom()];
+                break;
+            case EAST:
+                if(currentRoom.isEastRoom())
+                    currentRoom = rooms[currentRoom.getEastRoom()];
+                break;
+            case SOUTH:
+                if(currentRoom.isSouthRoom())
+                    currentRoom = rooms[currentRoom.getSouthRoom()];
+                break;
+            case WEST:
+                if(currentRoom.isWestRoom())
+                    currentRoom = rooms[currentRoom.getWestRoom()];
+                break;
+            default:
+                System.out.println("no direction specified");
+        }
     }
 }
