@@ -54,6 +54,7 @@ public class mp4Frame extends javax.swing.JFrame {
         treeImagePanel1.add(treeImageLabel1);
         treeImagePanel2.add(treeImageLabel2);
         ioTextArea.setText(map.roomVisit() + '\n');
+        ioTextArea.append(">");
     }
 
     /**
@@ -287,6 +288,7 @@ public class mp4Frame extends javax.swing.JFrame {
                 ioTextArea.setText(map.roomVisit() + '\n');
             }
             scoreLabel.setText("Total Score: " + player.getScore());
+            ioTextArea.append(">");
         }
     }//GEN-LAST:event_ioTextAreaKeyReleased
 
