@@ -18,18 +18,52 @@ public class CompassLabel extends JLabel {
     /**
      * Creates new form DieLabel
      */
-    private ImageIcon[] compassImage        = new ImageIcon[ 5 ];
+    private ImageIcon[] compassImage = new ImageIcon[ 15 ];
 
     public CompassLabel() {
         initComponents();
-        for ( int i = 0; i < 5; i++ ) {
+        for ( int i = 0; i < 15; i++ ) {
             String filename = "/images/compass" + i + ".png";
-            compassImage[i]     = new ImageIcon( this.getClass().getResource(filename) );
+            compassImage[i] = new ImageIcon( this.getClass().getResource(filename) );
         }
     }
     
     public void setImage(int i) {
-        this.setIcon( compassImage[i]); 
+        String direction = "";
+        this.setIcon( compassImage[i]);
+        switch(i) {
+            case 0: direction = "North";
+                break;
+            case 1: direction = "East";
+                break;
+            case 2: direction = "South";
+                break;
+            case 3: direction = "West";
+                break;
+            case 4: direction = "North, East";
+                break;
+            case 5: direction = "East, South";
+                break;
+            case 6: direction = "South, West";
+                break;
+            case 7: direction = "West, North ";
+                break;
+            case 8: direction = "North, East, South";
+                break;
+            case 9: direction = "East, South, West";
+                break;
+            case 10: direction = "South, West, North";
+                break;
+            case 11: direction = "West, North, East";
+                break;
+            case 12: direction = "East, West";
+                break;
+            case 13: direction = "North, South";
+                break;
+            case 14: direction = "North, East, South, West";
+                break;
+        }
+        this.setText(direction);
     }
 
     /**
@@ -43,16 +77,45 @@ public class CompassLabel extends JLabel {
 
         setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/compass0.png"))); // NOI18N
-        setText("WEST");
+        setText("North");
         setVerticalAlignment(javax.swing.SwingConstants.TOP);
         setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         setMaximumSize(new java.awt.Dimension(80, 100));
         setMinimumSize(new java.awt.Dimension(80, 100));
         setPreferredSize(new java.awt.Dimension(210, 250));
         setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        getAccessibleContext().setAccessibleName("North");
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
 }
+/*
+for(int x = 0; x < 4; x++) {
+            for(int y = 0; y < 4; y++) {
+                if(x*y > i) 
+                    break;
+                switch(x) {
+                    case 0: directions += "North";
+                        break;
+                    case 1: directions += "East";
+                        break;
+                    case 2: directions += "South";
+                        break;
+                    case 3: directions += "West";
+                        break;           
+                } 
+                switch(y) {
+                    case 0: directions += "North";
+                        break;
+                    case 1: directions += "East";
+                        break;
+                    case 2: directions += "South";
+                        break;
+                    case 3: directions += "West";
+                        break;
+                } 
+            }
+        }
+*/

@@ -123,7 +123,7 @@ public class mp4Frame extends javax.swing.JFrame {
         if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
             compassLabel.setImage(n);
             n++;
-            if(n == 5) {
+            if(n == 15) {
                 n = 0;
             }
         }
