@@ -10,6 +10,8 @@ import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.text.BadLocationException;
 
 /**
@@ -42,6 +44,12 @@ public class mp4Frame extends javax.swing.JFrame {
         compassLabel.showDirections(moveableDirections[0],moveableDirections[1],moveableDirections[2],moveableDirections[3]);
         roomNumLabel.setText("Room Number: " + map.getRoomNumber());
         scoreLabel.setText("Total Score: " + 0);
+        JLabel treeImageLabel;
+        String filename = "/images/tree.png";
+        ImageIcon image = new ImageIcon(getClass().getResource(filename)); 
+        treeImageLabel = new JLabel(image);
+        treeImagePanel1.add(treeImageLabel);
+        treeImagePanel2.add(treeImageLabel);
     }
 
     /**
@@ -59,11 +67,12 @@ public class mp4Frame extends javax.swing.JFrame {
         ioTextArea = new javax.swing.JTextArea();
         titleLabel = new javax.swing.JLabel();
         compassBackgroundPanel = new javax.swing.JPanel();
-        jSeparator1 = new javax.swing.JSeparator();
         roomNumLabel = new javax.swing.JLabel();
         compassPanel = new javax.swing.JPanel();
         compassTitleLabel = new javax.swing.JLabel();
         scoreLabel = new javax.swing.JLabel();
+        treeImagePanel2 = new javax.swing.JPanel();
+        treeImagePanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(124, 48, 241));
@@ -113,7 +122,6 @@ public class mp4Frame extends javax.swing.JFrame {
         compassBackgroundPanel.setBackground(new java.awt.Color(0, 102, 0));
         compassBackgroundPanel.setBorder(new javax.swing.border.MatteBorder(null));
         compassBackgroundPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        compassBackgroundPanel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 260, 20));
 
         roomNumLabel.setBackground(new java.awt.Color(204, 255, 204));
         roomNumLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
@@ -147,9 +155,11 @@ public class mp4Frame extends javax.swing.JFrame {
         scoreLabel.setText("Total Score: ");
         scoreLabel.setToolTipText("");
         scoreLabel.setOpaque(true);
-        compassBackgroundPanel.add(scoreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 260, 50));
+        compassBackgroundPanel.add(scoreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 260, 40));
 
         backgroundPanel.add(compassBackgroundPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 280, 410));
+        backgroundPanel.add(treeImagePanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 40, -1, -1));
+        backgroundPanel.add(treeImagePanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, 10, 10));
 
         getContentPane().add(backgroundPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -260,6 +270,7 @@ public class mp4Frame extends javax.swing.JFrame {
                 compassLabel.showDirections(north, east, south, west);
                 roomNumLabel.setText("Room Number: " + map.getRoomNumber());
             }
+            scoreLabel.setText("Total Score: " + player.getScore());
         }
     }//GEN-LAST:event_ioTextAreaKeyReleased
 
@@ -305,9 +316,10 @@ public class mp4Frame extends javax.swing.JFrame {
     private javax.swing.JLabel compassTitleLabel;
     private javax.swing.JTextArea ioTextArea;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel roomNumLabel;
     private javax.swing.JLabel scoreLabel;
     private javax.swing.JLabel titleLabel;
+    private javax.swing.JPanel treeImagePanel1;
+    private javax.swing.JPanel treeImagePanel2;
     // End of variables declaration//GEN-END:variables
 }
