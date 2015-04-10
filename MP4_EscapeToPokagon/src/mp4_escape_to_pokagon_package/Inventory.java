@@ -31,7 +31,9 @@ public class Inventory {
     
     public boolean contains(String ItemName) {
         for(Item item : inventory)
-            if(item.getName())
+            if(item.getName().equalsIgnoreCase(ItemName))
+                return true;
+        return false;
     }
     
     public boolean addItem(Item obj) {
