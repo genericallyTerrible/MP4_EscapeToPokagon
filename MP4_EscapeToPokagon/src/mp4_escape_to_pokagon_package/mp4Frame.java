@@ -113,7 +113,7 @@ public class mp4Frame extends javax.swing.JFrame {
         ioTextArea.setForeground(new java.awt.Color(0, 200, 0));
         ioTextArea.setRows(5);
         ioTextArea.setToolTipText("");
-        ioTextArea.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(51, 255, 51))); // NOI18N
+        ioTextArea.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Dialog", 0, 11), new java.awt.Color(51, 255, 51))); // NOI18N
         ioTextArea.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         ioTextArea.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
         ioTextArea.setDoubleBuffered(true);
@@ -212,7 +212,7 @@ public class mp4Frame extends javax.swing.JFrame {
                 String command = ioTextArea.getText(offset, endOfLine - offset);
                 
                 if(endOfLine - offset <= 3) {
-                    ioTextArea.append("\"" + command + "\" is not a recognized command\n");
+                    ioTextArea.append("\"" + command + "\" is not a recognized command\n\n> ");
                     return;
                 }
                 
@@ -257,7 +257,7 @@ public class mp4Frame extends javax.swing.JFrame {
                     ioTextArea.append(map.look());
                 }
                 
-                else if(command.substring(0, 9).equalsIgnoreCase("inventory"))  {
+                else if(endOfLine - offset >= 9 && command.substring(0, 9).equalsIgnoreCase("inventory"))  {
                     ioTextArea.append(player.checkInventory());
                 }
                 
