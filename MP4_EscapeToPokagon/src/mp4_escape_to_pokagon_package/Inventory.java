@@ -13,9 +13,38 @@ import java.util.ArrayList;
  * @author mtbjj
  */
 public class Inventory {
-    ArrayList<Pickup> items;
+    private ArrayList<Item> inventory;
+    private int maxNumItems;
+    private int numItems;
     
     Inventory() {
-        items = new ArrayList();
+        inventory = new ArrayList();
+        this.maxNumItems = 100;
+        numItems = 0;
     }
+    
+    Inventory(int maxNumItems) {
+        inventory = new ArrayList();
+        this.maxNumItems = maxNumItems;
+        numItems = 0;
+    }
+    
+    
+    public boolean addItem(Item obj) {
+        if(maxNumItems - (numItems + 1) > 0) {
+            return inventory.add(obj);
+        }
+        return false;
+    }
+    
+    public Item removeItem(Item obj) {
+        if(inventory.contains(obj)){
+            inventory.remove(obj);
+            return obj;
+        }
+        return null;
+    }
+    
+    
+    
 }

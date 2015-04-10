@@ -10,10 +10,10 @@ package mp4_escape_to_pokagon_package;
  *
  * @author mtbjj
  */
-public class Pickup {
+public class Item {
     int location;
     
-    Pickup() {
+    Item() {
         
     }
 }
