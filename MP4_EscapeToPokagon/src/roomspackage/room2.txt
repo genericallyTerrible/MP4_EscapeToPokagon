@@ -1,8 +1,8 @@
 -1
--1
--1
+1
+3
 -1
 0
-short room description
-long room description
+Gatehouse
+Gatehouse long description
 END

@@ -1,8 +1,8 @@
-0
+-1
+-1
+-1
 2
-3
-4
-100
-second room
-its the second room bro.
+0
+Park entrance.
+Park entrance long description
 END
