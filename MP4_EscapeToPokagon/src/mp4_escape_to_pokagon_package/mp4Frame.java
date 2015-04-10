@@ -44,12 +44,14 @@ public class mp4Frame extends javax.swing.JFrame {
         compassLabel.showDirections(moveableDirections[0],moveableDirections[1],moveableDirections[2],moveableDirections[3]);
         roomNumLabel.setText("Room Number: " + map.getRoomNumber());
         scoreLabel.setText("Total Score: " + 0);
-        JLabel treeImageLabel;
+        JLabel treeImageLabel1;
+        JLabel treeImageLabel2;
         String filename = "/images/tree.png";
         ImageIcon image = new ImageIcon(getClass().getResource(filename)); 
-        treeImageLabel = new JLabel(image);
-        treeImagePanel1.add(treeImageLabel);
-        treeImagePanel2.add(treeImageLabel);
+        treeImageLabel1 = new JLabel(image);
+        treeImageLabel2 = new JLabel(image);
+        treeImagePanel1.add(treeImageLabel1);
+        treeImagePanel2.add(treeImageLabel2);
     }
 
     /**
@@ -158,8 +160,14 @@ public class mp4Frame extends javax.swing.JFrame {
         compassBackgroundPanel.add(scoreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 260, 40));
 
         backgroundPanel.add(compassBackgroundPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 280, 410));
-        backgroundPanel.add(treeImagePanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 40, -1, -1));
-        backgroundPanel.add(treeImagePanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, 10, 10));
+
+        treeImagePanel2.setOpaque(false);
+        treeImagePanel2.setPreferredSize(new java.awt.Dimension(30, 50));
+        backgroundPanel.add(treeImagePanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 20, -1, -1));
+
+        treeImagePanel1.setOpaque(false);
+        treeImagePanel1.setPreferredSize(new java.awt.Dimension(30, 50));
+        backgroundPanel.add(treeImagePanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 30, 50));
 
         getContentPane().add(backgroundPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
