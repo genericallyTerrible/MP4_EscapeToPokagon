@@ -65,17 +65,18 @@ public class mp4Frame extends javax.swing.JFrame {
         setForeground(java.awt.Color.blue);
         setMaximumSize(new java.awt.Dimension(880, 560));
         setMinimumSize(new java.awt.Dimension(880, 560));
-        setPreferredSize(new java.awt.Dimension(880, 560));
+        setPreferredSize(new java.awt.Dimension(885, 600));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         backgroundPanel.setBackground(new java.awt.Color(51, 255, 51));
         backgroundPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 51), 4));
         backgroundPanel.setForeground(new java.awt.Color(0, 0, 255));
+        backgroundPanel.setFocusCycleRoot(true);
         backgroundPanel.setMaximumSize(new java.awt.Dimension(880, 560));
         backgroundPanel.setMinimumSize(new java.awt.Dimension(880, 560));
         backgroundPanel.setName("Escape To Pokagon"); // NOI18N
-        backgroundPanel.setPreferredSize(new java.awt.Dimension(880, 560));
+        backgroundPanel.setPreferredSize(new java.awt.Dimension(880, 565));
         backgroundPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ioTextArea.setBackground(new java.awt.Color(0, 0, 0));
@@ -95,7 +96,7 @@ public class mp4Frame extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(ioTextArea);
 
-        backgroundPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 550, 410));
+        backgroundPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 550, 410));
 
         titleLabel.setFont(new java.awt.Font("Stencil", 0, 36)); // NOI18N
         titleLabel.setForeground(new java.awt.Color(0, 102, 51));
@@ -149,6 +150,11 @@ public class mp4Frame extends javax.swing.JFrame {
                     return;
                 }
                 String command = ioTextArea.getText(offset, endOfLine - offset);
+                
+                if(endOfLine - offset <=3) {
+                    ioTextArea.append("\"" + command + "\" is not a recognized command\n");
+                    return;
+                }
                 
                 boolean[] moveableDirections = map.getMoveableDirections();
                 boolean north = moveableDirections[0];
