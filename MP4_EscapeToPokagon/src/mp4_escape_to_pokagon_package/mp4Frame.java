@@ -54,7 +54,7 @@ public class mp4Frame extends javax.swing.JFrame {
         treeImagePanel1.add(treeImageLabel1);
         treeImagePanel2.add(treeImageLabel2);
         ioTextArea.setText(map.roomVisit() + '\n');
-        ioTextArea.append(">");
+        ioTextArea.append("> ");
     }
 
     /**
@@ -185,7 +185,7 @@ public class mp4Frame extends javax.swing.JFrame {
             boolean moved = false;
             try{
                 int lineNumber = ioTextArea.getLineCount() - 2;
-                int offset = ioTextArea.getLineStartOffset(lineNumber);
+                int offset = ioTextArea.getLineStartOffset(lineNumber) + 2;
                 int endOfLine = ioTextArea.getLineEndOffset(lineNumber) -  1;
                 if(endOfLine - offset == 0) {
                     ioTextArea.insert("Please enter a command", offset);
@@ -236,7 +236,7 @@ public class mp4Frame extends javax.swing.JFrame {
                 
                 else if(command.substring(0, 4).equalsIgnoreCase("look")) {
                     //Check for items etc
-                    ioTextArea.append(map.look() + '\n');
+                    ioTextArea.append(map.look());
                 }
                 
                 else if(command.substring(0, 4).equalsIgnoreCase("take")) {
@@ -263,7 +263,6 @@ public class mp4Frame extends javax.swing.JFrame {
                                 if(reward > 0) {
                                     player.addToScore(reward);
                                     ioTextArea.append("You got " + reward + " points for " + item + "\n");
-                                    ioTextArea.append("Your current score is " + player.getScore() + " points\n");
                                 }                                                                
                             }
                         }
@@ -288,7 +287,7 @@ public class mp4Frame extends javax.swing.JFrame {
                 ioTextArea.setText(map.roomVisit() + '\n');
             }
             scoreLabel.setText("Total Score: " + player.getScore());
-            ioTextArea.append(">");
+            ioTextArea.append("> ");
         }
     }//GEN-LAST:event_ioTextAreaKeyReleased
 
