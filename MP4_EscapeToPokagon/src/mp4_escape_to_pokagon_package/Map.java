@@ -6,13 +6,14 @@
 package mp4_escape_to_pokagon_package;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  *
  * @author Andrew
  */
 public class Map {
-    Room[] rooms;
+    ArrayList<Room> rooms;
     Room currentRoom;
     private final int NUM_ROOMS = 6;
     private final int NORTH = 1;
@@ -22,12 +23,12 @@ public class Map {
     
     Map() throws IOException
     {
-        rooms = new Room[NUM_ROOMS];
+        rooms = new ArrayList<>();
         for(int i = 0; i < NUM_ROOMS; i++)
         {
-            rooms[i] = new Room("src/roomspackage/room" + i + ".txt");
+            rooms.add(i, new Room("src/roomspackage/room" + i + ".txt"));
         }
-        currentRoom = rooms[1];
+        currentRoom = rooms.get(1);
         
         //change rooms and points when rooms are finished
         //rooms[1].addItem(new Item("Pine cone", 100, 10));
@@ -56,19 +57,19 @@ public class Map {
         {
             case NORTH:
                 if(currentRoom.isNorthRoom())
-                    currentRoom = rooms[currentRoom.getNorthRoom()];
+                    currentRoom = rooms.get(currentRoom.getNorthRoom());
                 break;
             case EAST:
                 if(currentRoom.isEastRoom())
-                    currentRoom = rooms[currentRoom.getEastRoom()];
+                    currentRoom = rooms.get(currentRoom.getEastRoom());
                 break;
             case SOUTH:
                 if(currentRoom.isSouthRoom())
-                    currentRoom = rooms[currentRoom.getSouthRoom()];
+                    currentRoom = rooms.get(currentRoom.getSouthRoom());
                 break;
             case WEST:
                 if(currentRoom.isWestRoom())
-                    currentRoom = rooms[currentRoom.getWestRoom()];
+                    currentRoom = rooms.get(currentRoom.getWestRoom());
                 break;
             default:
                 System.out.println("no direction specified");
@@ -85,6 +86,10 @@ public class Map {
         int points = currentRoom.getPointValue();
         currentRoom.setPointValue(0);
         return points;
+    }
+    
+    public int getRoomNumber() {
+        return rooms.indexOf(currentRoom);
     }
     
     public boolean currentRoomContains(String itemName) {
