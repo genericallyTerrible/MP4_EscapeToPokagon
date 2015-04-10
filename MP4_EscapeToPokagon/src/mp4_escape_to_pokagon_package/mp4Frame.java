@@ -31,6 +31,7 @@ public class mp4Frame extends javax.swing.JFrame {
     
     public mp4Frame() {
         initComponents();
+        setTitle("Text Based Adventure Game");
         compassLabel = new CompassLabel();
         compassPanel.add(compassLabel);
         
@@ -52,7 +53,7 @@ public class mp4Frame extends javax.swing.JFrame {
         treeImageLabel2 = new JLabel(image);
         treeImagePanel1.add(treeImageLabel1);
         treeImagePanel2.add(treeImageLabel2);
-        ioTextArea.setText("Enter a command: ");
+        ioTextArea.setText(map.roomVisit() + '\n');
     }
 
     /**
@@ -120,7 +121,7 @@ public class mp4Frame extends javax.swing.JFrame {
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleLabel.setText("Escape To Pokagon!");
         titleLabel.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 102, 0)));
-        backgroundPanel.add(titleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, 370, 40));
+        backgroundPanel.add(titleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 370, 40));
 
         compassBackgroundPanel.setBackground(new java.awt.Color(0, 102, 0));
         compassBackgroundPanel.setBorder(new javax.swing.border.MatteBorder(null));
@@ -164,11 +165,11 @@ public class mp4Frame extends javax.swing.JFrame {
 
         treeImagePanel2.setOpaque(false);
         treeImagePanel2.setPreferredSize(new java.awt.Dimension(30, 50));
-        backgroundPanel.add(treeImagePanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 20, -1, -1));
+        backgroundPanel.add(treeImagePanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, -1, -1));
 
         treeImagePanel1.setOpaque(false);
         treeImagePanel1.setPreferredSize(new java.awt.Dimension(30, 50));
-        backgroundPanel.add(treeImagePanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 30, 50));
+        backgroundPanel.add(treeImagePanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 30, 50));
 
         getContentPane().add(backgroundPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -278,6 +279,7 @@ public class mp4Frame extends javax.swing.JFrame {
                 boolean west = moveableDirections[3];
                 compassLabel.showDirections(north, east, south, west);
                 roomNumLabel.setText("Room Number: " + map.getRoomNumber());
+                ioTextArea.setText(map.roomVisit() + '\n');
             }
             scoreLabel.setText("Total Score: " + player.getScore());
         }
