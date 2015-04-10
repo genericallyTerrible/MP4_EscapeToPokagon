@@ -116,7 +116,7 @@ public class mp4Frame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    Room currentRoom;
     int lineNumber = 0;
     int offset     = 0;
     int endOfLine  = 0;
@@ -138,7 +138,10 @@ public class mp4Frame extends javax.swing.JFrame {
                 } else if(command.equalsIgnoreCase("go west") || command.equalsIgnoreCase("move west") || command.equalsIgnoreCase("west")){
                     //Move west function + error check
                 } else if(command.substring(0, 4).equalsIgnoreCase("take")) {
-                    System.out.println("got here");
+                    //Check for items etc
+                    currentRoom.roomContains(command.substring(5, command.length()));
+                } else if(command.substring(0, 4).equalsIgnoreCase("drop")) {
+                    //Check for items etc
                 }
             } catch (BadLocationException ex) {
                 Logger.getLogger(mp4Frame.class.getName()).log(Level.SEVERE, null, ex);
