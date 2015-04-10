@@ -7,7 +7,7 @@
 package mp4_escape_to_pokagon_package;
 
 /**
- *
+ * A collection of information defining an interact-able item in the game
  * @author mtbjj
  */
 public class Item {
@@ -22,14 +22,26 @@ public class Item {
         this.scoreRoom     = scoreRoom;
     }
     
+    /**
+     * Returns the name of the Item
+     * @return the name of the Item
+     */
     public String getName() {
         return name;
     }
     
+    /**
+     * returns the room in which this item must be dropped for credit(points)
+     * @return the room in which this item must be dropped for credit(points)
+     */
     public int scoreRoom() {
         return scoreRoom;
     }
     
+    /**
+     * Returns the number of points rewarded for dropping in the scoreRoom
+     * @return the number of points rewarded for dropping in the scoreRoo
+     */
     public int returnReward() {
         int reward = pointValue;
         pointValue = 0;
