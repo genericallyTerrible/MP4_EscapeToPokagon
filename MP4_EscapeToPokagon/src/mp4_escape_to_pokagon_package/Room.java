@@ -23,7 +23,7 @@ public class Room {
     int pointValue;
     String shortDescription;
     String longDescription;
-    Inventory inventory;
+    public Inventory inventory;
     
     Room(String fileName) throws FileNotFoundException, IOException
     {
@@ -35,11 +35,12 @@ public class Room {
         pointValue = Integer.parseInt(reader.readLine());
         shortDescription = reader.readLine();
         String check = reader.readLine();
+        inventory = new Inventory();
         while(!check.equals("END"))
         {
             longDescription += check + "\n";
             check = reader.readLine();
         }
-        longDescription = longDescription.substring(0, longDescription.length()-2);
-    }
+        longDescription = longDescription.substring(0, longDescription.length()-1);
+    }    
 }
