@@ -40,6 +40,8 @@ public class mp4Frame extends javax.swing.JFrame {
         player = new Player();
         boolean[] moveableDirections = map.getMoveableDirections();
         compassLabel.showDirections(moveableDirections[0],moveableDirections[1],moveableDirections[2],moveableDirections[3]);
+        roomNumLabel.setText("Room Number: " + map.getRoomNumber());
+        scoreLabel.setText("Total Score: " + 0);
     }
 
     /**
@@ -57,9 +59,11 @@ public class mp4Frame extends javax.swing.JFrame {
         ioTextArea = new javax.swing.JTextArea();
         titleLabel = new javax.swing.JLabel();
         compassBackgroundPanel = new javax.swing.JPanel();
+        jSeparator1 = new javax.swing.JSeparator();
+        roomNumLabel = new javax.swing.JLabel();
         compassPanel = new javax.swing.JPanel();
         compassTitleLabel = new javax.swing.JLabel();
-        roomNumLabel = new javax.swing.JLabel();
+        scoreLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(124, 48, 241));
@@ -109,6 +113,15 @@ public class mp4Frame extends javax.swing.JFrame {
         compassBackgroundPanel.setBackground(new java.awt.Color(0, 102, 0));
         compassBackgroundPanel.setBorder(new javax.swing.border.MatteBorder(null));
         compassBackgroundPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        compassBackgroundPanel.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 260, 20));
+
+        roomNumLabel.setBackground(new java.awt.Color(204, 255, 204));
+        roomNumLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        roomNumLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        roomNumLabel.setText("Room #");
+        roomNumLabel.setToolTipText("");
+        roomNumLabel.setOpaque(true);
+        compassBackgroundPanel.add(roomNumLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 260, 50));
 
         compassPanel.setBackground(new java.awt.Color(204, 255, 204));
         compassPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -116,7 +129,7 @@ public class mp4Frame extends javax.swing.JFrame {
         compassPanel.setMaximumSize(new java.awt.Dimension(260, 327));
         compassPanel.setMinimumSize(new java.awt.Dimension(260, 327));
         compassPanel.setLayout(new java.awt.GridLayout(1, 1));
-        compassBackgroundPanel.add(compassPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 260, 230));
+        compassBackgroundPanel.add(compassPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 260, 230));
 
         compassTitleLabel.setBackground(new java.awt.Color(204, 255, 204));
         compassTitleLabel.setFont(new java.awt.Font("Sitka Banner", 1, 24)); // NOI18N
@@ -128,12 +141,13 @@ public class mp4Frame extends javax.swing.JFrame {
         compassTitleLabel.setOpaque(true);
         compassBackgroundPanel.add(compassTitleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 260, -1));
 
-        roomNumLabel.setBackground(new java.awt.Color(204, 255, 204));
-        roomNumLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        roomNumLabel.setText("Room #");
-        roomNumLabel.setToolTipText("");
-        roomNumLabel.setOpaque(true);
-        compassBackgroundPanel.add(roomNumLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 260, 80));
+        scoreLabel.setBackground(new java.awt.Color(204, 255, 204));
+        scoreLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        scoreLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        scoreLabel.setText("Total Score: ");
+        scoreLabel.setToolTipText("");
+        scoreLabel.setOpaque(true);
+        compassBackgroundPanel.add(scoreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 260, 50));
 
         backgroundPanel.add(compassBackgroundPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 280, 410));
 
@@ -222,7 +236,8 @@ public class mp4Frame extends javax.swing.JFrame {
                                 int reward = droppeditem.returnReward();
                                 if(reward > 0) {
                                     player.addToScore(reward);
-                                    ioTextArea.append("You got " + reward + "points for " + item);
+                                    ioTextArea.append("You got " + reward + " points for " + item + "\n");
+                                    ioTextArea.append("Your current score is " + player.getScore() + " points\n");
                                 }                                                                
                             }
                         }
@@ -290,7 +305,9 @@ public class mp4Frame extends javax.swing.JFrame {
     private javax.swing.JLabel compassTitleLabel;
     private javax.swing.JTextArea ioTextArea;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel roomNumLabel;
+    private javax.swing.JLabel scoreLabel;
     private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
 }

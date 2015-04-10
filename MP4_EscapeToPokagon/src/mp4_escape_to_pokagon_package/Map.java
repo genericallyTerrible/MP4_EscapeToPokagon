@@ -31,7 +31,7 @@ public class Map {
         currentRoom = rooms.get(1);
         
         //change rooms and points when rooms are finished
-        //rooms[1].addItem(new Item("Pine cone", 100, 10));
+        rooms.get(2).addItem(new Item("Pine cone", 100, 1));
         //rooms[1].addItem(new Item("Parking receipt", 100, 10));
         //rooms[1].addItem(new Item("Cattail", 100, 10));
         //rooms[1].addItem(new Item("Boat", 100, 10));
