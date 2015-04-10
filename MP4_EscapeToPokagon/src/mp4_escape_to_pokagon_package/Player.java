@@ -37,8 +37,8 @@ public class Player {
         return inventory.addItem(obj);
     }
     
-    public Item dropItem(Item obj) {
-        return inventory.removeItem(obj);
+    public Item dropItem(String itemName) {
+        return inventory.removeItem(itemName);
     }
     
     public boolean playerHas(String itemName){
