@@ -63,16 +63,19 @@ public class mp4Frame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(124, 48, 241));
         setForeground(java.awt.Color.blue);
-        setMaximumSize(new java.awt.Dimension(900, 600));
-        setMinimumSize(new java.awt.Dimension(900, 600));
-        setPreferredSize(new java.awt.Dimension(900, 600));
+        setMaximumSize(new java.awt.Dimension(880, 560));
+        setMinimumSize(new java.awt.Dimension(880, 560));
+        setPreferredSize(new java.awt.Dimension(880, 560));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         backgroundPanel.setBackground(new java.awt.Color(51, 255, 51));
+        backgroundPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 51), 4));
         backgroundPanel.setForeground(new java.awt.Color(0, 0, 255));
+        backgroundPanel.setMaximumSize(new java.awt.Dimension(880, 560));
+        backgroundPanel.setMinimumSize(new java.awt.Dimension(880, 560));
         backgroundPanel.setName("Escape To Pokagon"); // NOI18N
-        backgroundPanel.setPreferredSize(new java.awt.Dimension(880, 510));
+        backgroundPanel.setPreferredSize(new java.awt.Dimension(880, 560));
         backgroundPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ioTextArea.setBackground(new java.awt.Color(0, 0, 0));
@@ -126,7 +129,7 @@ public class mp4Frame extends javax.swing.JFrame {
 
         backgroundPanel.add(compassBackgroundPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 280, 410));
 
-        getContentPane().add(backgroundPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 580));
+        getContentPane().add(backgroundPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -141,8 +144,11 @@ public class mp4Frame extends javax.swing.JFrame {
                 int lineNumber = ioTextArea.getLineCount() - 2;
                 int offset = ioTextArea.getLineStartOffset(lineNumber);
                 int endOfLine = ioTextArea.getLineEndOffset(lineNumber) -  1;
+                if(endOfLine - offset == 0) {
+                    ioTextArea.insert("Please enter a command", offset);
+                    return;
+                }
                 String command = ioTextArea.getText(offset, endOfLine - offset);
-                Room currentRoom = map.getCurrentRoom();
                 
                 boolean[] moveableDirections = map.getMoveableDirections();
                 boolean north = moveableDirections[0];
@@ -178,20 +184,28 @@ public class mp4Frame extends javax.swing.JFrame {
                 
                 else if(command.substring(0, 4).equalsIgnoreCase("take")) {
                     //Check for items etc
-                    if(currentRoom.roomContains(command.substring(5, command.length()))){
-                        if(player.addItem(currentRoom.removeItem(command.substring(5, command.length())))){
-                            ioTextArea.append("You took " + command.substring(5, command.length()) + '\n');
+                    String item = command.substring(5, command.length());
+                    if(map.currentRoomContains(item)){
+                        if(player.addItem(map.removeItemFromCurrentRoom(item))){
+                            ioTextArea.append("You took " + item + '\n');
                         }
+                    } else {
+                        ioTextArea.append(item + " is not in this room\n");
                     }
                 } 
                 
                 else if(command.substring(0, 4).equalsIgnoreCase("drop")) {
                     //Check for items etc
-                    if(player.playerHas(command.substring(5, command.length()))){
-                        if(currentRoom.addItem(player.dropItem(command.substring(5, command.length())))) {
-                            ioTextArea.append("You dropped " + command.substring(5, command.length()) + '\n');
+                    String item = command.substring(5, command.length());
+                    if(player.playerHas(item)){
+                        if(map.addItemToCurrentRoom(player.dropItem(item))) {
+                            ioTextArea.append("You dropped " + item + '\n');
                         }
+                    } else {
+                        ioTextArea.append("You do not have " + item + '\n');
                     }
+                } else {
+                    ioTextArea.append("\"" + command + "\" is not a recognized command\n");
                 }
             } catch (BadLocationException ex) {
                 Logger.getLogger(mp4Frame.class.getName()).log(Level.SEVERE, null, ex);
