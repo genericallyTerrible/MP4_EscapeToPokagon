@@ -14,7 +14,7 @@ import java.io.IOException;
 public class Map {
     Room[] rooms;
     Room currentRoom;
-    private final int NUM_ROOMS = 5;
+    private final int NUM_ROOMS = 6;
     private final int NORTH = 1;
     private final int EAST = 2;
     private final int SOUTH = 3;
@@ -27,7 +27,7 @@ public class Map {
         {
             rooms[i] = new Room("src/roomspackage/room" + i + ".txt");
         }
-        currentRoom = rooms[0];
+        currentRoom = rooms[1];
         
         //change rooms and points when rooms are finished
         //rooms[1].addItem(new Item("Pine cone", 100, 10));
