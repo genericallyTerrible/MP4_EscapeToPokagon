@@ -114,9 +114,13 @@ public class mp4Frame extends javax.swing.JFrame {
         ioTextArea.setRows(5);
         ioTextArea.setToolTipText("");
         ioTextArea.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(51, 255, 51))); // NOI18N
-        ioTextArea.setCaretColor(new java.awt.Color(0, 200, 0));
         ioTextArea.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        ioTextArea.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
         ioTextArea.setDoubleBuffered(true);
+        ioTextArea.setFocusTraversalPolicyProvider(true);
+        ioTextArea.setHighlighter(null);
+        ioTextArea.setSelectedTextColor(new java.awt.Color(0, 0, 0));
+        ioTextArea.setSelectionColor(new java.awt.Color(0, 0, 0));
         ioTextArea.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 ioTextAreaKeyReleased(evt);
@@ -146,6 +150,7 @@ public class mp4Frame extends javax.swing.JFrame {
         compassBackgroundPanel.add(roomNumLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 260, 50));
 
         compassPanel.setBackground(new java.awt.Color(204, 255, 204));
+        compassPanel.setToolTipText("Display's possible paths that can be taken from inside the current room.");
         compassPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         compassPanel.setFocusCycleRoot(true);
         compassPanel.setMaximumSize(new java.awt.Dimension(260, 327));
@@ -159,7 +164,7 @@ public class mp4Frame extends javax.swing.JFrame {
         compassTitleLabel.setText("Compass");
         compassTitleLabel.setToolTipText("");
         compassTitleLabel.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.MatteBorder(null), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0))));
-        compassTitleLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        compassTitleLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         compassTitleLabel.setOpaque(true);
         compassBackgroundPanel.add(compassTitleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 260, -1));
 
