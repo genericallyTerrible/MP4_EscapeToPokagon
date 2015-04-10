@@ -22,12 +22,16 @@ public class CompassLabel extends JLabel {
 
     public CompassLabel() {
         initComponents();
-        for ( int i = 0; i < 15; i++ ) {
+        for ( int i = 0; i < 15; i++ ) {    //iterate through ImageIcons, initializing with the filenames of images representing every possible combo of directions (N, E, S, W)
             String filename = "/images/compass" + i + ".png";
-            compassImage[i] = new ImageIcon( this.getClass().getResource(filename) );
+            compassImage[i] = new ImageIcon( this.getClass().getResource(filename) ); 
         }
     }
     
+    /**
+     *Sets this labels text to the displayed directions
+     * @param i  //the number corresponding to the displayed directions
+     */
     public void setImage(int i) {
         String direction = "";
         this.setIcon( compassImage[i]);
@@ -66,8 +70,15 @@ public class CompassLabel extends JLabel {
         this.setText(direction);
     }
 
+    /**
+     *Sets the appropriate img to represent the directions given as parameters
+     * @param north boolean representing the direction north
+     * @param east boolean representing the direction east
+     * @param south boolean representing the direction south
+     * @param west boolean representing the direction west
+     */
     public void showDirections(boolean north, boolean east, boolean south, boolean west) {
-        int imgNum = 0;
+        int imgNum = 0;  //var holding the value that selects the appropriate img
         if(north)
             imgNum = 0;
          if(east)
@@ -134,31 +145,3 @@ public class CompassLabel extends JLabel {
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
-/*
-for(int x = 0; x < 4; x++) {
-            for(int y = 0; y < 4; y++) {
-                if(x*y > i) 
-                    break;
-                switch(x) {
-                    case 0: directions += "North";
-                        break;
-                    case 1: directions += "East";
-                        break;
-                    case 2: directions += "South";
-                        break;
-                    case 3: directions += "West";
-                        break;           
-                } 
-                switch(y) {
-                    case 0: directions += "North";
-                        break;
-                    case 1: directions += "East";
-                        break;
-                    case 2: directions += "South";
-                        break;
-                    case 3: directions += "West";
-                        break;
-                } 
-            }
-        }
-*/
