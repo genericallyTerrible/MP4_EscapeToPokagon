@@ -112,8 +112,7 @@ public class mp4Frame extends javax.swing.JFrame {
         ioTextArea.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
         ioTextArea.setForeground(new java.awt.Color(0, 200, 0));
         ioTextArea.setRows(5);
-        ioTextArea.setToolTipText("");
-        ioTextArea.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Dialog", 0, 11), new java.awt.Color(51, 255, 51))); // NOI18N
+        ioTextArea.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(51, 255, 51))); // NOI18N
         ioTextArea.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         ioTextArea.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
         ioTextArea.setDoubleBuffered(true);
@@ -145,7 +144,6 @@ public class mp4Frame extends javax.swing.JFrame {
         roomNumLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         roomNumLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         roomNumLabel.setText("Room #");
-        roomNumLabel.setToolTipText("");
         roomNumLabel.setOpaque(true);
         compassBackgroundPanel.add(roomNumLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 260, 50));
 
@@ -162,7 +160,6 @@ public class mp4Frame extends javax.swing.JFrame {
         compassTitleLabel.setFont(new java.awt.Font("Sitka Banner", 1, 24)); // NOI18N
         compassTitleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         compassTitleLabel.setText("Compass");
-        compassTitleLabel.setToolTipText("");
         compassTitleLabel.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.MatteBorder(null), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0))));
         compassTitleLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         compassTitleLabel.setOpaque(true);
@@ -172,7 +169,6 @@ public class mp4Frame extends javax.swing.JFrame {
         scoreLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         scoreLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         scoreLabel.setText("Total Score: ");
-        scoreLabel.setToolTipText("");
         scoreLabel.setOpaque(true);
         compassBackgroundPanel.add(scoreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 260, 40));
 
