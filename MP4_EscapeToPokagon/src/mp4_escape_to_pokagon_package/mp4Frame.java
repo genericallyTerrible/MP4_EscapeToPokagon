@@ -302,6 +302,11 @@ public class mp4Frame extends javax.swing.JFrame {
                 compassLabel.showDirections(north, east, south, west);
                 roomNumLabel.setText("Room Number: " + map.getRoomNumber());
                 ioTextArea.setText(map.roomVisit() + '\n');
+                
+                int visitPoints = map.addPoints();
+                if(visitPoints != 0){
+                    player.addToScore(visitPoints);
+                }
             }
             scoreLabel.setText("Total Score: " + player.getScore());
             ioTextArea.append("\n> ");
