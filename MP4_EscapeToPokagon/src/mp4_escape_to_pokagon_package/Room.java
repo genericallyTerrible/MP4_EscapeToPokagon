@@ -125,7 +125,7 @@ public class Room {
             String str = "";
             ArrayList<Item> currentInventory = inventory.itemsInInventory();
             for(Item item : currentInventory)
-                str += ("There is a " + item.getName() + "on the ground\n");
+                str += ("There is a " + item.getName() + " on the ground\n");
             return str;
         }
         return "There are no items in this room\n";
