@@ -13,9 +13,11 @@ import java.util.ArrayList;
  * @author Andrew
  */
 public class Map {
-    ArrayList<Room> rooms;
-    Room currentRoom;
-    private final int NUM_ROOMS = 37;
+    ArrayList<Room> rooms;//used to store all rooms used in this program
+    Room currentRoom;//tracks the room the player is currently in
+    private final int NUM_ROOMS = 37;//total number of rooms
+    
+    //int constants representing the 4 directions
     private final int NORTH = 1;
     private final int EAST = 2;
     private final int SOUTH = 3;
@@ -24,12 +26,15 @@ public class Map {
     Map() throws IOException
     {
         rooms = new ArrayList<>();
-        for(int i = 0; i < NUM_ROOMS; i++)
+        for(int i = 0; i < NUM_ROOMS; i++)//adds a room for each .txt file
         {
             rooms.add(i, new Room("src/roomspackage/room" + i + ".txt"));
         }
         currentRoom = rooms.get(1);
         
+        //all 8 items required by project parameters are placed in their
+        //appropriate Rooms and given appropriate point values and final
+        //room locations
         rooms.get(25).addItem(new Item("Pine cone", 30, 27));
         rooms.get(2).addItem(new Item("Parking receipt", 30, 31));
         rooms.get(15).addItem(new Item("Cattail", 40, 12));
@@ -40,6 +45,11 @@ public class Map {
         rooms.get(4).addItem(new Item("Map", 90, 24));
     }
     
+    /**
+     * returns 4 booleans, each representing whether or not there is a room
+     * in each direction. index 0 is north, 1 east, 2 south, and 3 west
+     * @return boolean array containing 4 booleans
+     */
     public boolean[] getMoveableDirections()
     {
         boolean[] directions = new boolean[4];
@@ -50,6 +60,12 @@ public class Map {
         return directions;
     }
     
+    /**
+     * checks if there is a room in the specified direction, then changes
+     * currentRoom to the new Room
+     * @param direction int value which should be either 1, 2, 3, or 4 which
+     * represents north, east, south, and west
+     */
     public void moveRooms(int direction)
     {
         switch(direction)
