@@ -122,11 +122,11 @@ public class Room {
     
     public String roomContents() {
         if(inventory.numInInventory() > 0){
-            String str = "This room contains:\n";
+            String str = "";
             ArrayList<Item> currentInventory = inventory.itemsInInventory();
             for(Item item : currentInventory)
-                str += ("\t" + item.getName() + "\n");
-            return str + "\n";
+                str += ("There is a " + item.getName() + " on the ground\n");
+            return str;
         }
         return "There are no items in this room\n";
     }

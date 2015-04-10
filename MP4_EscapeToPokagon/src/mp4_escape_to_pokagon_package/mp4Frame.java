@@ -31,6 +31,7 @@ public class mp4Frame extends javax.swing.JFrame {
     
     public mp4Frame() {
         initComponents();
+        setTitle("Text Based Adventure Game");
         compassLabel = new CompassLabel();
         compassPanel.add(compassLabel);
         
@@ -44,12 +45,24 @@ public class mp4Frame extends javax.swing.JFrame {
         compassLabel.showDirections(moveableDirections[0],moveableDirections[1],moveableDirections[2],moveableDirections[3]);
         roomNumLabel.setText("Room Number: " + map.getRoomNumber());
         scoreLabel.setText("Total Score: " + 0);
-        JLabel treeImageLabel;
+        
+        JLabel treeImageLabel1;
+        JLabel treeImageLabel2;
         String filename = "/images/tree.png";
         ImageIcon image = new ImageIcon(getClass().getResource(filename)); 
-        treeImageLabel = new JLabel(image);
-        treeImagePanel1.add(treeImageLabel);
-        treeImagePanel2.add(treeImageLabel);
+        treeImageLabel1 = new JLabel(image);
+        treeImageLabel2 = new JLabel(image);
+        treeImagePanel1.add(treeImageLabel1);
+        treeImagePanel2.add(treeImageLabel2);
+        
+        JLabel footerImageLabel;
+        filename = "/images/footer.png";
+        image = new ImageIcon(getClass().getResource(filename)); 
+        footerImageLabel = new JLabel(image);
+        footerPanel.add(footerImageLabel);
+        
+        ioTextArea.setText(map.roomVisit() + '\n');
+        ioTextArea.append("> ");
     }
 
     /**
@@ -73,6 +86,7 @@ public class mp4Frame extends javax.swing.JFrame {
         scoreLabel = new javax.swing.JLabel();
         treeImagePanel2 = new javax.swing.JPanel();
         treeImagePanel1 = new javax.swing.JPanel();
+        footerPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(124, 48, 241));
@@ -117,7 +131,7 @@ public class mp4Frame extends javax.swing.JFrame {
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleLabel.setText("Escape To Pokagon!");
         titleLabel.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 102, 0)));
-        backgroundPanel.add(titleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, 370, 40));
+        backgroundPanel.add(titleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 370, 40));
 
         compassBackgroundPanel.setBackground(new java.awt.Color(0, 102, 0));
         compassBackgroundPanel.setBorder(new javax.swing.border.MatteBorder(null));
@@ -158,8 +172,18 @@ public class mp4Frame extends javax.swing.JFrame {
         compassBackgroundPanel.add(scoreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 260, 40));
 
         backgroundPanel.add(compassBackgroundPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 280, 410));
-        backgroundPanel.add(treeImagePanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 40, -1, -1));
-        backgroundPanel.add(treeImagePanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, 10, 10));
+
+        treeImagePanel2.setOpaque(false);
+        treeImagePanel2.setPreferredSize(new java.awt.Dimension(30, 50));
+        backgroundPanel.add(treeImagePanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, -1, -1));
+
+        treeImagePanel1.setOpaque(false);
+        treeImagePanel1.setPreferredSize(new java.awt.Dimension(30, 50));
+        backgroundPanel.add(treeImagePanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 30, 50));
+
+        footerPanel.setOpaque(false);
+        footerPanel.setPreferredSize(new java.awt.Dimension(800, 40));
+        backgroundPanel.add(footerPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 520, -1, -1));
 
         getContentPane().add(backgroundPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -174,7 +198,7 @@ public class mp4Frame extends javax.swing.JFrame {
             boolean moved = false;
             try{
                 int lineNumber = ioTextArea.getLineCount() - 2;
-                int offset = ioTextArea.getLineStartOffset(lineNumber);
+                int offset = ioTextArea.getLineStartOffset(lineNumber) + 2;
                 int endOfLine = ioTextArea.getLineEndOffset(lineNumber) -  1;
                 if(endOfLine - offset == 0) {
                     ioTextArea.insert("Please enter a command", offset);
@@ -221,7 +245,12 @@ public class mp4Frame extends javax.swing.JFrame {
                         moved = true;
                     } else 
                         ioTextArea.append("\"" + command + "\" is not a valid direction\n");
-                } 
+                }
+                
+                else if(command.substring(0, 4).equalsIgnoreCase("look")) {
+                    //Check for items etc
+                    ioTextArea.append(map.look());
+                }
                 
                 else if(command.substring(0, 4).equalsIgnoreCase("take")) {
                     //Check for items etc
@@ -247,7 +276,6 @@ public class mp4Frame extends javax.swing.JFrame {
                                 if(reward > 0) {
                                     player.addToScore(reward);
                                     ioTextArea.append("You got " + reward + " points for " + item + "\n");
-                                    ioTextArea.append("Your current score is " + player.getScore() + " points\n");
                                 }                                                                
                             }
                         }
@@ -269,8 +297,10 @@ public class mp4Frame extends javax.swing.JFrame {
                 boolean west = moveableDirections[3];
                 compassLabel.showDirections(north, east, south, west);
                 roomNumLabel.setText("Room Number: " + map.getRoomNumber());
+                ioTextArea.setText(map.roomVisit() + '\n');
             }
             scoreLabel.setText("Total Score: " + player.getScore());
+            ioTextArea.append("> ");
         }
     }//GEN-LAST:event_ioTextAreaKeyReleased
 
@@ -314,6 +344,7 @@ public class mp4Frame extends javax.swing.JFrame {
     private javax.swing.JPanel compassBackgroundPanel;
     private javax.swing.JPanel compassPanel;
     private javax.swing.JLabel compassTitleLabel;
+    private javax.swing.JPanel footerPanel;
     private javax.swing.JTextArea ioTextArea;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel roomNumLabel;

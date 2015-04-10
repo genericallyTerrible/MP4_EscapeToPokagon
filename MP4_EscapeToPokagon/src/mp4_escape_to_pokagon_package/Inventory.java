@@ -38,6 +38,7 @@ public class Inventory {
     
     public boolean addItem(Item obj) {
         if(maxNumItems - (numItems + 1) > 0) {
+            numItems++;
             return inventory.add(obj);
         }
         return false;
@@ -46,6 +47,7 @@ public class Inventory {
     public Item removeItem(String itemName) {
         for(Item item : inventory) {
             if(item.getName().equalsIgnoreCase(itemName)){
+                numItems--;
                 inventory.remove(item);
                 return item;
             }
