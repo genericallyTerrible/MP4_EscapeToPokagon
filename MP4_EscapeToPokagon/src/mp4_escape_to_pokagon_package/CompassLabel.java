@@ -110,6 +110,13 @@ public class CompassLabel extends JLabel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+
+        jLabel1.setText("jLabel1");
+
+        jLabel2.setText("jLabel2");
+
         setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/compass0.png"))); // NOI18N
         setText("North");
@@ -119,11 +126,12 @@ public class CompassLabel extends JLabel {
         setMinimumSize(new java.awt.Dimension(80, 100));
         setPreferredSize(new java.awt.Dimension(210, 250));
         setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        getAccessibleContext().setAccessibleName("North");
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
 /*

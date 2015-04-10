@@ -86,4 +86,8 @@ public class Map {
         currentRoom.setPointValue(0);
         return points;
     }
+    
+    public Room getCurrentRoom() {
+        return currentRoom;
+    }
 }
