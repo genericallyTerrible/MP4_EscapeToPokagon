@@ -129,7 +129,17 @@ public class mp4Frame extends javax.swing.JFrame {
                 offset = ioTextArea.getLineStartOffset(lineNumber);
                 endOfLine = ioTextArea.getLineEndOffset(lineNumber) -  1;
                 String command = ioTextArea.getText(offset, endOfLine - offset);
-                System.out.println(command);
+                if(command.equalsIgnoreCase("go north") || command.equalsIgnoreCase("move north") || command.equalsIgnoreCase("north")){ 
+                    //Move north function + error check
+                } else if(command.equalsIgnoreCase("go east") || command.equalsIgnoreCase("move east") || command.equalsIgnoreCase("east")){
+                    //Move east function + error check
+                } else if(command.equalsIgnoreCase("go south") || command.equalsIgnoreCase("move south") || command.equalsIgnoreCase("south")){
+                    //Move south function + error check
+                } else if(command.equalsIgnoreCase("go west") || command.equalsIgnoreCase("move west") || command.equalsIgnoreCase("west")){
+                    //Move west function + error check
+                } else if(command.substring(0, 4).equalsIgnoreCase("take")) {
+                    System.out.println("got here");
+                }
             } catch (BadLocationException ex) {
                 Logger.getLogger(mp4Frame.class.getName()).log(Level.SEVERE, null, ex);
             }
