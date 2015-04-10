@@ -30,15 +30,14 @@ public class Map {
         }
         currentRoom = rooms.get(1);
         
-        //change rooms and points when rooms are finished
-        rooms.get(2).addItem(new Item("Pine cone", 100, 1));
-        //rooms[1].addItem(new Item("Parking receipt", 100, 10));
-        //rooms[1].addItem(new Item("Cattail", 100, 10));
-        //rooms[1].addItem(new Item("Boat", 100, 10));
-        //rooms[1].addItem(new Item("Canteen", 100, 10));
-        //rooms[1].addItem(new Item("Bluebird", 100, 10));
-        //rooms[1].addItem(new Item("Rusted key", 100, 10));
-        //rooms[1].addItem(new Item("Map", 100, 10));
+        rooms.get(25).addItem(new Item("Pine cone", 30, 27));
+        rooms.get(2).addItem(new Item("Parking receipt", 30, 31));
+        rooms.get(15).addItem(new Item("Cattail", 40, 12));
+        rooms.get(5).addItem(new Item("Boat", 20, 6));
+        rooms.get(28).addItem(new Item("Canteen", 50, 23));
+        rooms.get(36).addItem(new Item("Bluebird", 60, 20));
+        rooms.get(22).addItem(new Item("Rusted key", 60, 35));
+        rooms.get(4).addItem(new Item("Map", 90, 24));
     }
     
     public boolean[] getMoveableDirections()
