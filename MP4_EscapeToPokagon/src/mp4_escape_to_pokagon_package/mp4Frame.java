@@ -6,9 +6,7 @@
 
 package mp4_escape_to_pokagon_package;
 
-import java.awt.Color;
 import java.awt.event.KeyEvent;
-import javax.swing.ImageIcon;
 
 /**
  *
@@ -116,16 +114,11 @@ public class mp4Frame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    int n = 0;
     
     private void ioTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ioTextFieldKeyReleased
         // TODO add your handling code here:
         if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            compassLabel.setImage(n);
-            n++;
-            if(n == 15) {
-                n = 0;
-            }
+            compassLabel.showDirections(true, false, true, true);
         }
     }//GEN-LAST:event_ioTextFieldKeyReleased
 

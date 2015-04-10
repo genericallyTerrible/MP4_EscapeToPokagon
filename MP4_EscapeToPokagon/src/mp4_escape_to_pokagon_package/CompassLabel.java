@@ -66,6 +66,41 @@ public class CompassLabel extends JLabel {
         this.setText(direction);
     }
 
+    public void showDirections(boolean north, boolean east, boolean south, boolean west) {
+        int imgNum = 0;
+        if(north)
+            imgNum = 0;
+         if(east)
+            imgNum = 1;
+         if(south)
+            imgNum = 2;
+         if(west)
+            imgNum = 3;
+         if(north && east)
+            imgNum = 4;
+         if(east && south)
+            imgNum = 5;
+         if(south && west)
+            imgNum = 6;
+         if(west && north)
+            imgNum = 7;
+         if(north && east && south)
+            imgNum = 8;
+         if(east && south && west)
+            imgNum = 9;
+         if(south && west && north)
+            imgNum = 10;
+         if(west && north && east)
+            imgNum = 11;
+         if(east && west)
+            imgNum = 12;
+         if(north && south)
+            imgNum = 13;
+        if(north && east && south && west)
+            imgNum = 14;
+        setImage(imgNum);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
