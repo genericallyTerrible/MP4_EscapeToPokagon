@@ -45,6 +45,7 @@ public class mp4Frame extends javax.swing.JFrame {
         compassLabel.showDirections(moveableDirections[0],moveableDirections[1],moveableDirections[2],moveableDirections[3]);
         roomNumLabel.setText("Room Number: " + map.getRoomNumber());
         scoreLabel.setText("Total Score: " + 0);
+        
         JLabel treeImageLabel1;
         JLabel treeImageLabel2;
         String filename = "/images/tree.png";
@@ -53,6 +54,13 @@ public class mp4Frame extends javax.swing.JFrame {
         treeImageLabel2 = new JLabel(image);
         treeImagePanel1.add(treeImageLabel1);
         treeImagePanel2.add(treeImageLabel2);
+        
+        JLabel footerImageLabel;
+        filename = "/images/footer.png";
+        image = new ImageIcon(getClass().getResource(filename)); 
+        footerImageLabel = new JLabel(image);
+        footerPanel.add(footerImageLabel);
+        
         ioTextArea.setText(map.roomVisit() + '\n');
         ioTextArea.append("> ");
     }
@@ -78,6 +86,7 @@ public class mp4Frame extends javax.swing.JFrame {
         scoreLabel = new javax.swing.JLabel();
         treeImagePanel2 = new javax.swing.JPanel();
         treeImagePanel1 = new javax.swing.JPanel();
+        footerPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(124, 48, 241));
@@ -171,6 +180,10 @@ public class mp4Frame extends javax.swing.JFrame {
         treeImagePanel1.setOpaque(false);
         treeImagePanel1.setPreferredSize(new java.awt.Dimension(30, 50));
         backgroundPanel.add(treeImagePanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 30, 50));
+
+        footerPanel.setOpaque(false);
+        footerPanel.setPreferredSize(new java.awt.Dimension(800, 40));
+        backgroundPanel.add(footerPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 520, -1, -1));
 
         getContentPane().add(backgroundPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -331,6 +344,7 @@ public class mp4Frame extends javax.swing.JFrame {
     private javax.swing.JPanel compassBackgroundPanel;
     private javax.swing.JPanel compassPanel;
     private javax.swing.JLabel compassTitleLabel;
+    private javax.swing.JPanel footerPanel;
     private javax.swing.JTextArea ioTextArea;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel roomNumLabel;
