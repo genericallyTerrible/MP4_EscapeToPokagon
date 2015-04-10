@@ -231,7 +231,12 @@ public class mp4Frame extends javax.swing.JFrame {
                         moved = true;
                     } else 
                         ioTextArea.append("\"" + command + "\" is not a valid direction\n");
-                } 
+                }
+                
+                else if(command.substring(0, 4).equalsIgnoreCase("look")) {
+                    //Check for items etc
+                    ioTextArea.append(map.look() + '\n');
+                }
                 
                 else if(command.substring(0, 4).equalsIgnoreCase("take")) {
                     //Check for items etc
