@@ -28,6 +28,16 @@ public class Map {
             rooms[i] = new Room("src/roomspackage/room" + i + ".txt");
         }
         currentRoom = rooms[0];
+        
+        //change rooms and points when rooms are finished
+        //rooms[1].addItem(new Item("Pine cone", 100, 10));
+        //rooms[1].addItem(new Item("Parking receipt", 100, 10));
+        //rooms[1].addItem(new Item("Cattail", 100, 10));
+        //rooms[1].addItem(new Item("Boat", 100, 10));
+        //rooms[1].addItem(new Item("Canteen", 100, 10));
+        //rooms[1].addItem(new Item("Bluebird", 100, 10));
+        //rooms[1].addItem(new Item("Rusted key", 100, 10));
+        //rooms[1].addItem(new Item("Map", 100, 10));
     }
     
     public boolean[] getMoveableDirections()
@@ -63,5 +73,17 @@ public class Map {
             default:
                 System.out.println("no direction specified");
         }
+    }
+    
+    /**
+     * returns the points earned from getting to the current room. The current
+     * room then has a point value of zero.
+     * @return returns point value
+     */
+    public int addPoints()
+    {
+        int points = currentRoom.getPointValue();
+        currentRoom.setPointValue(0);
+        return points;
     }
 }

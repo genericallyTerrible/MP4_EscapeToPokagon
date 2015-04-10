@@ -89,6 +89,11 @@ public class Room {
         return pointValue;
     }
     
+    public void setPointValue(int n)
+    {
+        pointValue = n;
+    }
+    
     public boolean addItem(Item obj) 
     {
         return inventory.addItem(obj);
