@@ -112,7 +112,7 @@ public class Map {
     }
     
     public String look(){
-        return currentRoom.getLongDescription() + currentContents();
+        return currentRoom.getLongDescription() + '\n' + currentContents();
     }
     
     public String currentContents() {
