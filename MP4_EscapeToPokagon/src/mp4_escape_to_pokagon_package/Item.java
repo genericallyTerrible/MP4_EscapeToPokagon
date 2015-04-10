@@ -15,13 +15,11 @@ public class Item {
     private String name;
     private int pointValue;
     private int scoreRoom;
-    private int startLocation;
     
-    Item(String name, int pointValue, int scoreRoom, int startLocation){
+    Item(String name, int pointValue, int scoreRoom){
         this.name          = name;
         this.pointValue    = pointValue;
         this.scoreRoom     = scoreRoom;
-        this.startLocation = startLocation;
     }
     
     public String getName() {
@@ -34,9 +32,5 @@ public class Item {
     
     public int pointValue() {
         return pointValue;
-    }
-    
-    public int startLocation() {
-        return startLocation;
     }
 }
