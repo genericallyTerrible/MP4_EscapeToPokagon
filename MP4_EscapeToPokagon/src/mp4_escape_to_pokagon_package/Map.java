@@ -110,4 +110,12 @@ public class Map {
         }
         return currentRoom.getShortDescription();
     }
+    
+    public String look(){
+        return currentRoom.getLongDescription();
+    }
+    
+    public String currentContents() {
+        return currentRoom.roomContents();
+    }
 }
