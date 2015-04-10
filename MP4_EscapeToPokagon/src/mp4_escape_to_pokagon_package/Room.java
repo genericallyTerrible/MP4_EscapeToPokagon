@@ -114,4 +114,8 @@ public class Room {
         return inventory.removeItem(obj);
     }
     
+    public boolean roomContains(String itemName){
+        return inventory.contains(itemName);
+    }
+    
 }
