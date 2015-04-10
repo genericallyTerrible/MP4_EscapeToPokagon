@@ -87,7 +87,15 @@ public class Map {
         return points;
     }
     
-    public Room getCurrentRoom() {
-        return currentRoom;
+    public boolean currentRoomContains(String itemName) {
+        return currentRoom.roomContains(itemName);
+    }
+    
+    public boolean addItemToCurrentRoom(Item obj){
+        return currentRoom.addItem(obj);
+    }
+    
+    public Item removeItemFromCurrentRoom(String itemName) {
+        return currentRoom.removeItem(itemName);
     }
 }
