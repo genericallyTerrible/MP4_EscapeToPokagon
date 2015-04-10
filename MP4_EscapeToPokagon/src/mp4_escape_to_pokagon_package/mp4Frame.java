@@ -52,6 +52,7 @@ public class mp4Frame extends javax.swing.JFrame {
         treeImageLabel2 = new JLabel(image);
         treeImagePanel1.add(treeImageLabel1);
         treeImagePanel2.add(treeImageLabel2);
+        ioTextArea.setText("Enter a command: ");
     }
 
     /**
