@@ -109,9 +109,9 @@ public class Room {
         return longDescription;
     }
     
-    public Item removeItem(Item obj) 
+    public Item removeItem(String itemName) 
     {
-        return inventory.removeItem(obj);
+        return inventory.removeItem(itemName);
     }
     
     public boolean roomContains(String itemName){

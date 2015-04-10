@@ -43,14 +43,14 @@ public class Inventory {
         return false;
     }
     
-    public Item removeItem(Item obj) {
-        if(inventory.contains(obj)){
-            inventory.remove(obj);
-            return obj;
+    public Item removeItem(String itemName) {
+        for(Item item : inventory){
+            if(item.getName().equalsIgnoreCase(itemName)){
+                inventory.remove(item);
+                return item;
+            }
         }
         return null;
     }
-    
-    
     
 }
