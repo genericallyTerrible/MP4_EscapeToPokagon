@@ -5,6 +5,6 @@
 0
 Entrance to Pokagon
 You stand at the entrance to Pokagon State Park,
-and the only way to go is west.  That way leasds
+and the only way to go is west.  That way leads
 to the Gatehouse.
 END

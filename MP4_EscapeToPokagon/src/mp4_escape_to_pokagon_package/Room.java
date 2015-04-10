@@ -38,6 +38,7 @@ public class Room {
         shortDescription = reader.readLine();
         String check = reader.readLine();
         inventory = new Inventory();
+        longDescription = "";
         while(!check.equals("END"))
         {
             longDescription += check + "\n";
