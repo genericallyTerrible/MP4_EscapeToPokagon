@@ -54,7 +54,7 @@ public class Player {
             for(Item item : currentInventory) {
                 str += ("\t" + item.getName() + "\n");
             }
-            return str + "\n";
+            return str;
         }
         return "Your inventory is currently empty.\n";
     }

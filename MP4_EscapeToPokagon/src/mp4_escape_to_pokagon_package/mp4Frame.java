@@ -252,6 +252,10 @@ public class mp4Frame extends javax.swing.JFrame {
                     ioTextArea.append(map.look());
                 }
                 
+                else if(command.substring(0, 9).equalsIgnoreCase("inventory"))  {
+                    ioTextArea.append(player.checkInventory());
+                }
+                
                 else if(command.substring(0, 4).equalsIgnoreCase("take")) {
                     //Check for items etc
                     String item = command.substring(5, command.length());
