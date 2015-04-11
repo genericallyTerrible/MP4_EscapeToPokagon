@@ -112,7 +112,7 @@ public class mp4Frame extends javax.swing.JFrame {
         ioTextArea.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
         ioTextArea.setForeground(new java.awt.Color(0, 200, 0));
         ioTextArea.setRows(5);
-        ioTextArea.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Tahoma", 0, 13), new java.awt.Color(51, 255, 51))); // NOI18N
+        ioTextArea.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Dialog", 0, 11), new java.awt.Color(51, 255, 51))); // NOI18N
         ioTextArea.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         ioTextArea.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
         ioTextArea.setDoubleBuffered(true);
@@ -121,6 +121,9 @@ public class mp4Frame extends javax.swing.JFrame {
         ioTextArea.setSelectedTextColor(new java.awt.Color(0, 0, 0));
         ioTextArea.setSelectionColor(new java.awt.Color(0, 0, 0));
         ioTextArea.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                ioTextAreaKeyPressed(evt);
+            }
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 ioTextAreaKeyReleased(evt);
             }
@@ -263,51 +266,63 @@ public class mp4Frame extends javax.swing.JFrame {
                 
                 else if(command.substring(0, 4).equalsIgnoreCase("look")) {
                     //Check for items etc
-                    ioTextArea.append(map.look());
+                    ioTextArea.setText(map.look());
                 }
                 
                 else if(endOfLine - offset >= 9 && command.substring(0, 9).equalsIgnoreCase("inventory"))  {
                     ioTextArea.append(player.checkInventory());
                 }
                 
+                else if(command.substring(0, 4).equalsIgnoreCase("quit")) {
+                    System.exit(0);
+                }
+                
                 else if(command.substring(0, 4).equalsIgnoreCase("take")) {
-                    //Check for items etc
-                    String item = command.substring(5, command.length());
-                    if(map.currentRoomContains(item)){
-                        if(player.addItem(map.removeItemFromCurrentRoom(item))){
-                            ioTextArea.append("You took " + item + '\n');
+                    if(command.length() > 5){                    
+                        //Check for items etc
+                        String item = command.substring(5, command.length());
+                        if(map.currentRoomContains(item)){
+                            Item playerWants = map.removeItemFromCurrentRoom(item); 
+                            if(player.addItem(playerWants)){
+                                ioTextArea.append("You took " + item + '\n');
+                            } else {
+                                map.addItemToCurrentRoom(playerWants);
+                                ioTextArea.append("Your inventory is full! You cannot carry " + item + '\n');
+                            }
+                        } else {
+                            ioTextArea.append(item + " is not in this room\n");
                         }
-                    } else {
-                        ioTextArea.append(item + " is not in this room\n");
-                    }
+                    } else 
+                        ioTextArea.append("You cannot take nothing\n");
                 } 
                 
                 else if(command.substring(0, 4).equalsIgnoreCase("drop")) {
                     //Check for items etc
-                    String item = command.substring(5, command.length());
-                    //If player has said item
-                    if(player.playerHas(item)){
-                        Item droppeditem = player.dropItem(item);
-                        //If item can be added to the current rooom's inventory
-                        if(map.addItemToCurrentRoom(droppeditem)) {
-                            //Alert user
-                            ioTextArea.append("You dropped " + item + '\n');
-                            //If there was a reward for dropping said item in this room
-                            if(droppeditem.scoreRoom() == map.getRoomNumber()){
-                                int reward = droppeditem.returnReward();
-                                //If there is still a reward for dropping this item
-                                if(reward > 0) {
-                                    player.addToScore(reward);
-                                    ioTextArea.append("You got " + reward + " points for " + item + "\n");
-                                }                                                                
+                    if (command.length() > 5){
+                        String item = command.substring(5, command.length());
+                        //If player has said item
+                        if(player.playerHas(item)){
+                            Item droppeditem = player.dropItem(item);
+                            //If item can be added to the current rooom's inventory
+                            if(map.addItemToCurrentRoom(droppeditem)) {
+                                //Alert user
+                                ioTextArea.append("You dropped " + item + '\n');
+                                //If there was a reward for dropping said item in this room
+                                if(droppeditem.scoreRoom() == map.getRoomNumber()){
+                                    int reward = droppeditem.returnReward();
+                                    //If there is still a reward for dropping this item
+                                    if(reward > 0) {
+                                        player.addToScore(reward);
+                                        ioTextArea.append("You got " + reward + " points for " + item + "\n");
+                                    }                                                                
+                                }
                             }
-                        }
-                    } else {
-                        ioTextArea.append("You do not have " + item + '\n');
-                    }
-                } else {
+                        } else 
+                            ioTextArea.append("You do not have " + item + '\n');
+                    } else 
+                        ioTextArea.append("You cannot drop nothing\n");
+                } else
                     ioTextArea.append("\"" + command + "\" is not a recognized command\n");
-                }
             } catch (BadLocationException ex) { //Try failed
                 Logger.getLogger(mp4Frame.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -332,6 +347,11 @@ public class mp4Frame extends javax.swing.JFrame {
             ioTextArea.append("\n> ");
         }
     }//GEN-LAST:event_ioTextAreaKeyReleased
+
+    private void ioTextAreaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ioTextAreaKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+        }
+    }//GEN-LAST:event_ioTextAreaKeyPressed
 
     /**
      * @param args the command line arguments

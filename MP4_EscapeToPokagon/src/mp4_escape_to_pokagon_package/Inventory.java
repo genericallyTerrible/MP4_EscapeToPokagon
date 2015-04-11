@@ -49,7 +49,7 @@ public class Inventory {
      * ArrayList, false if unsuccessful;
      */
     public boolean addItem(Item obj) {
-        if(maxNumItems - (numItems + 1) > 0) {
+        if(maxNumItems - (numItems) > 0) {
             numItems++;
             return inventory.add(obj);
         }
