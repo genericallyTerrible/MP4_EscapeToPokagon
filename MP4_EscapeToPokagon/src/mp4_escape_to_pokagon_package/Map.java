@@ -165,6 +165,14 @@ public class Map {
     }
     
     /**
+     * Returns the short description for the current room
+     * @return the short description for the current room
+     */
+    public String shortDesc() {
+        return currentRoom.getShortDescription() + '\n';
+    }
+    
+    /**
      * Returns a string containing the current inventory of the current room
      * @return a string containing the current inventory of the current room
      */

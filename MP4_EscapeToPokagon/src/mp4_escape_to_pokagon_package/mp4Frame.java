@@ -213,7 +213,14 @@ public class mp4Frame extends javax.swing.JFrame {
                 //No command was entered
                 if(endOfLine - offset == 0) {
                     //Alert user, break away
-                    ioTextArea.insert("Please enter a command", offset);
+                    ioTextArea.insert("Please enter a command\n\n> ", offset + 1);
+                    return;
+                }
+                
+                //User Spammed enter
+                if(endOfLine - offset < 0) {
+                    ioTextArea.setText("Please do not spam, it isn't nice.\n\n");
+                    ioTextArea.append(map.shortDesc() + "\n> ");
                     return;
                 }
                 
