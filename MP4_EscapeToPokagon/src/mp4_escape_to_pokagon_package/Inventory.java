@@ -19,13 +19,13 @@ public class Inventory {
     private int numItems;
     
     Inventory() {
-        inventory = new ArrayList();
+        inventory = new ArrayList<>();
         this.maxNumItems = 100;
         numItems = 0;
     }
     
     Inventory(int maxNumItems) {
-        inventory = new ArrayList();
+        inventory = new ArrayList<>();
         this.maxNumItems = maxNumItems;
         numItems = 0;
     }
