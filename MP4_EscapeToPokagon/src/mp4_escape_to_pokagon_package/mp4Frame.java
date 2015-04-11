@@ -247,28 +247,28 @@ public class mp4Frame extends javax.swing.JFrame {
                         map.moveRooms(1);
                         moved = true;
                     } else 
-                        ioTextArea.append(command.substring(command.length() - 5, command.length()) + " is not a valid direction\n");   
+                        ioTextArea.append("North is not a valid direction\n");   
                 } else if(command.equalsIgnoreCase("go east") || command.equalsIgnoreCase("move east") || command.equalsIgnoreCase("east")){
                     //Move east function + error check
                     if(east) {
                         map.moveRooms(2);
                         moved = true;
                     } else 
-                        ioTextArea.append(command.substring(command.length() - 4, command.length()) + " is not a valid direction\n");
+                        ioTextArea.append("East is not a valid direction\n");
                 } else if(command.equalsIgnoreCase("go south") || command.equalsIgnoreCase("move south") || command.equalsIgnoreCase("south")){
                     //Move south function + error check
                     if(south) {
                         map.moveRooms(3);
                         moved = true;
                     } else 
-                        ioTextArea.append(command.substring(command.length() - 5, command.length()) + " is not a valid direction\n");
+                        ioTextArea.append("South is not a valid direction\n");
                 } else if(command.equalsIgnoreCase("go west") || command.equalsIgnoreCase("move west") || command.equalsIgnoreCase("west")){
                     //Move west function + error check
                     if(west) {
                         map.moveRooms(4);
                         moved = true;
                     } else 
-                        ioTextArea.append(command.substring(command.length() - 4, command.length()) + " is not a valid direction\n");
+                        ioTextArea.append("West is not a valid direction\n");
                 }
                 
                 else if(command.substring(0, 4).equalsIgnoreCase("look")) {
