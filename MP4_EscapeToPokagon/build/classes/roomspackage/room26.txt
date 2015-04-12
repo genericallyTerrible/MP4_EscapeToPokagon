@@ -3,7 +3,7 @@
 -1
 27
 0
-Somewhere on trail
+Somewhere on trail 3
 You continue on trail 3, but you also discover
 another trail leading north.  Trail 7 goes north
 while trail 3 continues east and west.

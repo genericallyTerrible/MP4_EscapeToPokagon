@@ -10,6 +10,8 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 /**
@@ -36,11 +38,11 @@ public class Room {
     //false if it isn't the first time this room has been visited
     private boolean isFirstVisit = true;
     
-    Room(String fileName) throws FileNotFoundException, IOException
+    Room(InputStream inputStream) throws IOException
     {
         //creates a reader for the given fileName, and gets all the data 
         //for the Room from it
-        BufferedReader reader = new BufferedReader(new FileReader(fileName));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
         northRoom = Integer.parseInt(reader.readLine());
         eastRoom = Integer.parseInt(reader.readLine());
         southRoom = Integer.parseInt(reader.readLine());
@@ -56,6 +58,7 @@ public class Room {
             check = reader.readLine();
         }
         longDescription = longDescription.substring(0, longDescription.length()-1);
+        inputStream.close();
     }    
     
     /**

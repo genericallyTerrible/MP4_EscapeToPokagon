@@ -6,6 +6,7 @@
 package mp4_escape_to_pokagon_package;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 /**
@@ -28,7 +29,11 @@ public class Map {
         rooms = new ArrayList<>();
         for(int i = 0; i < NUM_ROOMS; i++)//adds a room for each .txt file
         {
-            rooms.add(i, new Room("src/roomspackage/room" + i + ".txt"));
+            String filename = "/roomspackage/room" + i + ".txt";
+            try (InputStream fileStream = this.getClass().getResourceAsStream(filename)) {
+                System.out.println(fileStream.toString());
+                rooms.add(i, new Room(fileStream));
+            }
         }
         currentRoom = rooms.get(1);
         
