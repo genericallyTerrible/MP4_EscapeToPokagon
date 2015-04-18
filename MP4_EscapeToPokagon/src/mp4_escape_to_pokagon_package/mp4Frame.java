@@ -91,9 +91,7 @@ public class mp4Frame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(124, 48, 241));
         setForeground(java.awt.Color.blue);
-        setMaximumSize(new java.awt.Dimension(880, 560));
         setMinimumSize(new java.awt.Dimension(880, 560));
-        setPreferredSize(new java.awt.Dimension(885, 593));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -187,7 +185,7 @@ public class mp4Frame extends javax.swing.JFrame {
 
         footerPanel.setOpaque(false);
         footerPanel.setPreferredSize(new java.awt.Dimension(800, 40));
-        backgroundPanel.add(footerPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 520, -1, -1));
+        backgroundPanel.add(footerPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 522, -1, -1));
 
         getContentPane().add(backgroundPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
