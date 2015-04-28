@@ -93,7 +93,6 @@ public class mp4Frame extends javax.swing.JFrame {
         setForeground(java.awt.Color.blue);
         setMinimumSize(new java.awt.Dimension(880, 560));
         setResizable(false);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         backgroundPanel.setBackground(new java.awt.Color(51, 255, 51));
         backgroundPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 51), 4));
@@ -103,7 +102,6 @@ public class mp4Frame extends javax.swing.JFrame {
         backgroundPanel.setMinimumSize(new java.awt.Dimension(880, 560));
         backgroundPanel.setName("Escape To Pokagon"); // NOI18N
         backgroundPanel.setPreferredSize(new java.awt.Dimension(880, 565));
-        backgroundPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ioTextArea.setBackground(new java.awt.Color(0, 0, 0));
         ioTextArea.setColumns(20);
@@ -128,25 +126,20 @@ public class mp4Frame extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(ioTextArea);
 
-        backgroundPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 550, 410));
-
         titleLabel.setFont(new java.awt.Font("Stencil", 0, 36)); // NOI18N
         titleLabel.setForeground(new java.awt.Color(0, 102, 51));
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleLabel.setText("Escape To Pokagon!");
         titleLabel.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 102, 0)));
-        backgroundPanel.add(titleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 370, 40));
 
         compassBackgroundPanel.setBackground(new java.awt.Color(0, 102, 0));
         compassBackgroundPanel.setBorder(new javax.swing.border.MatteBorder(null));
-        compassBackgroundPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         roomNumLabel.setBackground(new java.awt.Color(204, 255, 204));
         roomNumLabel.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         roomNumLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         roomNumLabel.setText("Room #");
         roomNumLabel.setOpaque(true);
-        compassBackgroundPanel.add(roomNumLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 260, 50));
 
         compassPanel.setBackground(new java.awt.Color(204, 255, 204));
         compassPanel.setToolTipText("Display's possible paths that can be taken from inside the current room.");
@@ -155,7 +148,6 @@ public class mp4Frame extends javax.swing.JFrame {
         compassPanel.setMaximumSize(new java.awt.Dimension(260, 327));
         compassPanel.setMinimumSize(new java.awt.Dimension(260, 327));
         compassPanel.setLayout(new java.awt.GridLayout(1, 1));
-        compassBackgroundPanel.add(compassPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 260, 230));
 
         compassTitleLabel.setBackground(new java.awt.Color(204, 255, 204));
         compassTitleLabel.setFont(new java.awt.Font("Sitka Banner", 1, 24)); // NOI18N
@@ -164,30 +156,98 @@ public class mp4Frame extends javax.swing.JFrame {
         compassTitleLabel.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.MatteBorder(null), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0))));
         compassTitleLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         compassTitleLabel.setOpaque(true);
-        compassBackgroundPanel.add(compassTitleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 260, -1));
 
         scoreLabel.setBackground(new java.awt.Color(204, 255, 204));
         scoreLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         scoreLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         scoreLabel.setText("Total Score: ");
         scoreLabel.setOpaque(true);
-        compassBackgroundPanel.add(scoreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 260, 40));
 
-        backgroundPanel.add(compassBackgroundPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 280, 410));
+        javax.swing.GroupLayout compassBackgroundPanelLayout = new javax.swing.GroupLayout(compassBackgroundPanel);
+        compassBackgroundPanel.setLayout(compassBackgroundPanelLayout);
+        compassBackgroundPanelLayout.setHorizontalGroup(
+            compassBackgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(compassBackgroundPanelLayout.createSequentialGroup()
+                .addGap(9, 9, 9)
+                .addGroup(compassBackgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(compassTitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(roomNumLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(compassPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(scoreLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        compassBackgroundPanelLayout.setVerticalGroup(
+            compassBackgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(compassBackgroundPanelLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(compassTitleLabel)
+                .addGap(5, 5, 5)
+                .addComponent(roomNumLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(compassPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(scoreLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         treeImagePanel2.setOpaque(false);
         treeImagePanel2.setPreferredSize(new java.awt.Dimension(30, 50));
-        backgroundPanel.add(treeImagePanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, -1, -1));
 
         treeImagePanel1.setOpaque(false);
         treeImagePanel1.setPreferredSize(new java.awt.Dimension(30, 50));
-        backgroundPanel.add(treeImagePanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 30, 50));
 
         footerPanel.setOpaque(false);
         footerPanel.setPreferredSize(new java.awt.Dimension(800, 40));
-        backgroundPanel.add(footerPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 522, -1, -1));
+        footerPanel.setLayout(new java.awt.GridBagLayout());
 
-        getContentPane().add(backgroundPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
+        backgroundPanel.setLayout(backgroundPanelLayout);
+        backgroundPanelLayout.setHorizontalGroup(
+            backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(backgroundPanelLayout.createSequentialGroup()
+                .addGap(216, 216, 216)
+                .addComponent(treeImagePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(treeImagePanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(backgroundPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(compassBackgroundPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(backgroundPanelLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(footerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        backgroundPanelLayout.setVerticalGroup(
+            backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(backgroundPanelLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(treeImagePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(backgroundPanelLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(treeImagePanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1)
+                    .addComponent(compassBackgroundPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 410, Short.MAX_VALUE))
+                .addGap(12, 12, 12)
+                .addComponent(footerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(backgroundPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(backgroundPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
