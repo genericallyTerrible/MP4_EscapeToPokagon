@@ -102,6 +102,7 @@ public class mp4Frame extends javax.swing.JFrame {
         backgroundPanel.setMinimumSize(new java.awt.Dimension(880, 560));
         backgroundPanel.setName("Escape To Pokagon"); // NOI18N
         backgroundPanel.setPreferredSize(new java.awt.Dimension(880, 565));
+        backgroundPanel.setLayout(null);
 
         ioTextArea.setBackground(new java.awt.Color(0, 0, 0));
         ioTextArea.setColumns(20);
@@ -126,11 +127,16 @@ public class mp4Frame extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(ioTextArea);
 
+        backgroundPanel.add(jScrollPane1);
+        jScrollPane1.setBounds(301, 100, 550, 410);
+
         titleLabel.setFont(new java.awt.Font("Stencil", 0, 36)); // NOI18N
         titleLabel.setForeground(new java.awt.Color(0, 102, 51));
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleLabel.setText("Escape To Pokagon!");
         titleLabel.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 102, 0)));
+        backgroundPanel.add(titleLabel);
+        titleLabel.setBounds(260, 30, 370, 40);
 
         compassBackgroundPanel.setBackground(new java.awt.Color(0, 102, 0));
         compassBackgroundPanel.setBorder(new javax.swing.border.MatteBorder(null));
@@ -190,59 +196,30 @@ public class mp4Frame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        backgroundPanel.add(compassBackgroundPanel);
+        compassBackgroundPanel.setBounds(16, 100, 279, 410);
+
         treeImagePanel2.setOpaque(false);
         treeImagePanel2.setPreferredSize(new java.awt.Dimension(30, 50));
+        backgroundPanel.add(treeImagePanel2);
+        treeImagePanel2.setBounds(640, 20, 30, 50);
 
         treeImagePanel1.setOpaque(false);
         treeImagePanel1.setPreferredSize(new java.awt.Dimension(30, 50));
+        backgroundPanel.add(treeImagePanel1);
+        treeImagePanel1.setBounds(220, 20, 30, 50);
 
         footerPanel.setOpaque(false);
         footerPanel.setPreferredSize(new java.awt.Dimension(800, 40));
         footerPanel.setLayout(new java.awt.GridBagLayout());
-
-        javax.swing.GroupLayout backgroundPanelLayout = new javax.swing.GroupLayout(backgroundPanel);
-        backgroundPanel.setLayout(backgroundPanelLayout);
-        backgroundPanelLayout.setHorizontalGroup(
-            backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(backgroundPanelLayout.createSequentialGroup()
-                .addGap(216, 216, 216)
-                .addComponent(treeImagePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addComponent(treeImagePanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(backgroundPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(compassBackgroundPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(backgroundPanelLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(footerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        backgroundPanelLayout.setVerticalGroup(
-            backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(backgroundPanelLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(treeImagePanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(backgroundPanelLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(treeImagePanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(backgroundPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1)
-                    .addComponent(compassBackgroundPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 410, Short.MAX_VALUE))
-                .addGap(12, 12, 12)
-                .addComponent(footerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        backgroundPanel.add(footerPanel);
+        footerPanel.setBounds(40, 522, 800, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(backgroundPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(backgroundPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 868, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
